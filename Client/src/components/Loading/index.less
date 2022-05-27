@@ -1,0 +1,36 @@
+.Loading {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(3, 3, 3, 0.4);
+  z-index: 100;
+}
+
+.Loading__icon {
+  display: block;
+  width: 36px;
+  height: 36px;
+  animation: AppLoader 1s infinite linear;
+  background-color: rgba(240, 185, 11, 0.7);
+}
+@keyframes AppLoader {
+  0% {
+    transform: rotate(0deg);
+    border-radius: 50%;
+  }
+
+  50% {
+    transform: rotate(90deg);
+    border-radius: 0%;
+  }
+
+  100% {
+    transform: rotate(180deg);
+    border-radius: 50%;
+  }
+}

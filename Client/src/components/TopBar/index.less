@@ -1,0 +1,137 @@
+.TopBar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  z-index: 50;
+}
+
+.TopBar__Avatar {
+  cursor: pointer;
+  animation: Rotate infinite 4s linear;
+}
+
+.TopBar__Drawer {
+  .ant-drawer-header {
+    display: none;
+  }
+  .ant-drawer-body {
+    position: relative;
+    padding: 0;
+    height: 100%;
+  }
+
+  .ant-drawer-wrapper-body {
+    display: block;
+  }
+  .ant-drawer-content-wrapper {
+    min-width: 160px;
+  }
+}
+
+.TopBar__item {
+  margin-bottom: 6px;
+  .ant-btn {
+    text-align: left;
+    font-size: 14px;
+  }
+
+  &:last-child {
+    border: none;
+  }
+  .logo {
+    border-radius: 100%;
+    width: 14px;
+  }
+  .customBtn {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.TopBar__instPWA {
+  margin-top: 16px;
+  .ant-btn {
+    text-align: center;
+  }
+}
+.TopBar__header {
+  text-align: center;
+  padding-top: 20px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 16px;
+  margin-bottom: 14px;
+}
+
+.TopBar__Info {
+  border-top: 1px solid #f0f0f0;
+  margin-top: 16px;
+  padding-top: 16px;
+  text-align: center;
+}
+
+.TopBar__Info-icp {
+  text-align: center;
+  font-size: 12px;
+  color: #333;
+  .icp-icon {
+    width: 12px;
+    margin-right: 4px;
+  }
+  .icp-link {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+  }
+}
+
+.TopBar__version {
+  color: #d9d9d9;
+  font-size: 12px;
+  cursor: pointer;
+  span {
+    display: block;
+  }
+}
+
+.TopBar__NickName {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
+}
+.TopBar__Email {
+  font-size: 12px;
+  color: #666;
+}
+
+.TopBar__footer {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+}
+
+.TopBar__footer-wrapper {
+  padding-bottom: 16px;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 16px;
+}
+
+.TopBar__footer-Info {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.TopBar__closeBtn {
+  display: inline-block;
+  font-size: 20px;
+  color: #f0b90b;
+}
+.TopBar__footer-close {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}

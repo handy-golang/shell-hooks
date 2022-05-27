@@ -1,0 +1,53 @@
+.Hunter {
+  padding: 0 16px;
+  padding-top: 50px;
+  padding-bottom: 24px;
+
+  .CardGroup {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .ant-card {
+      margin-right: 8px;
+    }
+  }
+}
+
+.Hunter__inputG {
+  min-height: 64px;
+  margin-bottom: 24px;
+  .logo-input {
+    width: 14px;
+  }
+  .ant-input {
+    text-align: center;
+  }
+  textarea.ant-input {
+    text-align: left;
+    color: #666;
+    height: 24px;
+  }
+}
+
+@media only screen and (min-width: 575px) {
+  .Hunter__inputG {
+    flex-direction: column;
+    .ant-form-item-label {
+      text-align: left;
+    }
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .Hunter__inputG {
+    .ant-form-item-label {
+      padding-bottom: 0;
+      &:after {
+        content: ':';
+        position: relative;
+        top: -0.5px;
+        margin: 0 8px 0 2px;
+      }
+    }
+  }
+}

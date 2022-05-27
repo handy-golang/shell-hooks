@@ -1,0 +1,50 @@
+{
+  "name": "hunter-client",
+  "version": "0.3.8",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "git": "./_shell/gitSet.sh",
+    "sync": "./_shell/sync_git.sh",
+    "deploy": "./_shell/deploy.sh",
+    "static": "node  ./_shell/static_serve.mjs"
+  },
+  "dependencies": {
+    "antd": "^4.20.5",
+    "axios": "^0.27.2",
+    "copy-to-clipboard": "^3.3.1",
+    "crypto-js": "^4.1.1",
+    "dayjs": "^1.11.2",
+    "less": "^4.1.2",
+    "lodash": "^4.17.21",
+    "qs": "^6.10.3",
+    "react": "18.1.0",
+    "react-dom": "^18.1.0",
+    "react-router-dom": "^6.3.0",
+    "store": "^2.0.12"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.1.1",
+    "@types/lodash": "^4.14.182",
+    "@types/qs": "^6.9.7",
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.4",
+    "@types/store": "^2.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
+    "@vitejs/plugin-react": "^1.3.2",
+    "eslint": "^8.16.0",
+    "eslint-config-alloy": "^4.5.1",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "http-proxy-middleware": "^2.0.6",
+    "koa": "^2.13.4",
+    "koa-static": "^5.0.0",
+    "koa2-connect": "^1.0.2",
+    "typescript": "^4.6.4",
+    "vite": "^2.9.9",
+    "vite-plugin-pwa": "^0.12.0"
+  }
+}
