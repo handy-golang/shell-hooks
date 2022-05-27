@@ -2,6 +2,7 @@ package router
 
 import (
 	"fmt"
+	"html/template"
 	"io"
 	"os"
 	"time"
@@ -11,11 +12,10 @@ import (
 	"WebHook.net/router/middleWare"
 	"WebHook.net/router/private"
 	"WebHook.net/router/public"
+	"WebHook.net/tmpl"
 	"github.com/EasyGolang/goTools/mStr"
 	"github.com/gin-gonic/gin"
 )
-
-var FilePathArr []string
 
 func Start() {
 	logFile, _ := os.Create(config.Dir.Log + "/WebServer-" + time.Now().Format("06年1月02日15时") + ".log")
@@ -23,10 +23,13 @@ func Start() {
 	gin.DefaultWriter = io.MultiWriter(logFile)
 
 	router := gin.Default()
+
 	// 模板渲染
-	router.LoadHTMLGlob("tmpl/**/*")
-	// 静态资源处理
-	router.Static("/static", "./static")
+	tmpl := template.Must(template.New("").ParseFS(tmpl.Templates, "template/*.html"))
+	router.SetHTMLTemplate(tmpl)
+
+	// router.StaticFS("/static", http.FS(tmpl.Static))
+
 	// page index 首页
 	router.GET("/", Index)
 	router.GET("/index", Index)

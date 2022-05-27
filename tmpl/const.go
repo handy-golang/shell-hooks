@@ -1,7 +1,7 @@
 package tmpl
 
 import (
-	_ "embed"
+	"embed"
 )
 
 //go:embed email.html
@@ -11,3 +11,9 @@ type EmailParam struct {
 	Message string
 	SysTime string
 }
+
+//go:embed html/*
+var Templates embed.FS
+
+//go:embed static/*
+var Static embed.FS
