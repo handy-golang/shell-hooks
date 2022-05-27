@@ -23,12 +23,18 @@ func Start() {
 	gin.DefaultWriter = io.MultiWriter(logFile)
 
 	router := gin.Default()
+	// 模板渲染
+	router.LoadHTMLGlob("tmpl/**/*")
+	// 静态资源处理
+	router.Static("/static", "./static")
+	// page index 首页
+	router.GET("/", Index)
+	router.GET("/index", Index)
+
 	router.Use(
 		middleWare.Public,
 		middleWare.RateLimitMiddleware(time.Second, 100, 100),
 	)
-
-	router.GET("/", middleWare.Index("欢迎访问 WebHook.net 服务"))
 
 	api_g := router.Group("/api")
 	api_g.GET("/", middleWare.Index("这里是 WebHook.net/api 服务首页"))
@@ -46,6 +52,9 @@ func Start() {
 	{
 		private.Router(private_g)
 	}
+
+	// 404 处理
+	router.NoRoute(NotFund)
 
 	port := global.UserEnv.Port
 
