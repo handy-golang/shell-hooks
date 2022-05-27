@@ -5,7 +5,7 @@ import (
 	"github.com/EasyGolang/goTools/mStr"
 )
 
-var SecretKey = mEncrypt.MD5("golang is good")
+var SecretKey = mEncrypt.MD5("WebHook is good")
 
 func Encrypt(msg string) string {
 	return mEncrypt.Sha256(
