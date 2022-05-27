@@ -1,0 +1,10 @@
+{
+  "name": "web_hook-net",
+  "version": "0.0.1",
+  "scripts": {
+    "git": "./_shell/gitSet.sh",
+    "sync": "./_shell/sync_git.sh",
+    "start": "./_shell/run.sh",
+    "build": "./_shell/build.sh"
+  }
+}
