@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"html/template"
 	"io"
+	"net/http"
 	"os"
 	"time"
 
@@ -25,13 +26,13 @@ func Start() {
 	router := gin.Default()
 
 	// 模板渲染
-	tmpl := template.Must(template.New("").ParseFS(tmpl.Templates, "template/*.html"))
-	router.SetHTMLTemplate(tmpl)
+	tmplObj := template.Must(template.New("").ParseFS(tmpl.Html, "template/*.html"))
+	router.SetHTMLTemplate(tmplObj)
 
-	// router.StaticFS("/static", http.FS(tmpl.Static))
+	router.StaticFS("/static", http.FS(tmpl.Static))
 
 	// page index 首页
-	router.GET("/", Index)
+	// router.GET("/", Index)
 	router.GET("/index", Index)
 
 	router.Use(
@@ -57,7 +58,7 @@ func Start() {
 	}
 
 	// 404 处理
-	router.NoRoute(NotFund)
+	// router.NoRoute(NotFund)
 
 	port := global.UserEnv.Port
 
