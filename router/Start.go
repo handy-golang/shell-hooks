@@ -26,13 +26,13 @@ func Start() {
 	router := gin.Default()
 
 	// 模板渲染
-	tmplObj := template.Must(template.New("").ParseFS(tmpl.Html, "template/*.html"))
+	tmplObj := template.Must(template.New("").ParseFS(tmpl.Html, "**/*"))
 	router.SetHTMLTemplate(tmplObj)
 
 	router.StaticFS("/static", http.FS(tmpl.Static))
 
 	// page index 首页
-	// router.GET("/", Index)
+	router.GET("/", Index)
 	router.GET("/index", Index)
 
 	router.Use(
