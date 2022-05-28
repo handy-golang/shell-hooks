@@ -58,7 +58,7 @@ func Start() {
 	}
 
 	// 404 处理
-	// router.NoRoute(NotFund)
+	router.NoRoute(NotFund)
 
 	port := global.UserEnv.Port
 
