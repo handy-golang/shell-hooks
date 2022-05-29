@@ -11,6 +11,7 @@
   }
   #res div {
     padding: 10px;
+    white-space: pre-line;
   }
 </style>
 
@@ -34,17 +35,10 @@
 
   <h3>脚本执行结果:</h3>
   <div id="res">
-    错误码:
-    <div id="resCode"></div>
-
-    <br />
     执行结果:
-    <code id="resData"></code>
-    <br />
-
-    提示消息:
     <div id="resMsg"></div>
-    <br />
+
+    <div id="resData"></div>
   </div>
 </body>
 <script type="module">
@@ -54,7 +48,6 @@
     item.onclick = HandleShell;
   }
 
-  const codeElm = document.getElementById("resCode");
   const dataElm = document.getElementById("resData");
   const msgElm = document.getElementById("resMsg");
   const resElm = document.getElementById("res");
@@ -66,9 +59,10 @@
     const password = inputElm.value;
     Elm.disabled = true;
 
-    codeElm.innerHTML = "0";
-    dataElm.innerHTML = "脚本执行中。。。";
-    msgElm.innerHTML = "";
+    msgElm.innerHTML = "脚本执行中。。。";
+    dataElm.innerHTML = "";
+
+    resElm.style.borderColor = "cornflowerblue";
 
     http
       .ajax({
