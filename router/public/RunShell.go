@@ -38,17 +38,17 @@ func RunShell(c *gin.Context) {
 	isShellPath := mPath.Exists(ShellPath)
 
 	if !isShellPath {
-		c.JSON(http.StatusOK, ginResult.Fail.WithMsg("脚本未找到"))
+		c.JSON(http.StatusOK, ginResult.Fail.WithData("脚本未找到"))
 		return
 	}
 
 	// 执行 start.sh 文件
 	Succeed, err := exec.Command("/bin/bash", ShellPath).Output()
 	if err != nil {
-		c.JSON(http.StatusOK, ginResult.Fail.WithMsg(mStr.ToStr(err)))
+		c.JSON(http.StatusOK, ginResult.Fail.WithData(mStr.ToStr(err)))
 		return
 	} else {
-		c.JSON(http.StatusOK, ginResult.OK.WithMsg(mStr.ToStr(Succeed)))
+		c.JSON(http.StatusOK, ginResult.OK.WithData(mStr.ToStr(Succeed)))
 		return
 	}
 }

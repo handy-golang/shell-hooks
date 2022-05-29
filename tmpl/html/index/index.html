@@ -6,12 +6,21 @@
     margin: 20px;
     padding: 8px 12px;
   }
+  #res {
+    border: 3px solid cornflowerblue;
+  }
+  #res div {
+    padding: 10px;
+  }
 </style>
 
 <body>
   <h1>{{.title}}</h1>
 
   <div>点击按钮执行对应脚本</div>
+  <br />
+  <br />
+  <br />
   <input type="password" id="password" placeholder="请输入密码" />
   <div>
     {{ range $i, $v := .ShellList }}
@@ -22,14 +31,33 @@
     </div>
     {{ end }}
   </div>
+
+  <h3>脚本执行结果:</h3>
+  <div id="res">
+    错误码:
+    <div id="resCode"></div>
+
+    <br />
+    执行结果:
+    <div id="resData"></div>
+    <br />
+
+    提示消息:
+    <div id="resMsg"></div>
+    <br />
+  </div>
 </body>
 <script type="module">
   const shellBtn = document.getElementsByClassName("runShellBtn");
-  console.log(shellBtn);
   for (let i = 0; i < shellBtn.length; i++) {
     const item = shellBtn[i];
     item.onclick = HandleShell;
   }
+
+  const codeElm = document.getElementById("resCode");
+  const dataElm = document.getElementById("resData");
+  const msgElm = document.getElementById("resMsg");
+  const resElm = document.getElementById("res");
 
   function HandleShell(e) {
     const Elm = e.target;
@@ -49,7 +77,16 @@
       })
       .then((res) => {
         const data = res.data;
+        codeElm.innerHTML = data.Code;
+        dataElm.innerHTML = data.Data;
+        msgElm.innerHTML = data.Msg;
+
         console.log(data);
+        if (data.Code > 0) {
+          resElm.style.borderColor = "green";
+        } else {
+          resElm.style.borderColor = "red";
+        }
         Elm.disabled = false;
       })
       .catch((err) => {
