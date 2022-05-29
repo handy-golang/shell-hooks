@@ -6,10 +6,8 @@ import (
 	"os"
 
 	"WebHook.net/config"
-	"WebHook.net/tmpl"
 	"github.com/EasyGolang/goTools/mLog"
 	"github.com/EasyGolang/goTools/mPath"
-	"github.com/EasyGolang/goTools/mTime"
 )
 
 var Log *log.Logger // 系统日志& 重大错误或者事件
@@ -31,16 +29,4 @@ func LogInt() {
 func LogErr(sum ...any) {
 	str := fmt.Sprintf("系统错误 : %+v", sum)
 	Log.Println(str)
-
-	Email := Email(EmailOpt{
-		To:       UserEnv.Email.To,
-		Subject:  "LogErr",
-		Template: tmpl.Email,
-		SendData: tmpl.EmailParam{
-			Message: str,
-			SysTime: mTime.UnixFormat(""),
-		},
-	})
-
-	go Email.Send()
 }

@@ -9,17 +9,49 @@ import (
 	viper "github.com/spf13/viper"
 )
 
-type EmailInfo struct {
-	Account  string   `json:"Account"`
-	Password string   `json:"Password"`
-	To       []string `json:"To"`
+/* ==================================================================== */
+/* ================= ServerEnv ================= */
+/* ==================================================================== */
+var ServerEnv struct {
+	ShellPath string
 }
 
+func LoadServerEnv(envPath string) {
+	viper.SetConfigFile(envPath)
+	err := viper.ReadInConfig()
+	if err != nil {
+		LogErr(" ServerEnv 读取配置文件出错 ", err)
+		return
+	}
+	viper.Unmarshal(&ServerEnv)
+}
+
+func ServerEnvInt() {
+	isHomeEnvFile := mPath.Exists(config.File.ServerEnv)
+	isAppEnvFile := mPath.Exists(config.File.AppServerEnv)
+
+	if isHomeEnvFile {
+		LoadServerEnv(config.File.ServerEnv)
+	}
+	if isAppEnvFile {
+		LoadServerEnv(config.File.AppServerEnv)
+	}
+
+	if !isHomeEnvFile && !isAppEnvFile {
+		errStr := fmt.Errorf(" 没找到 server_env.yaml 配置文件")
+		LogErr(errStr)
+		panic(errStr)
+	}
+
+	Log.Println("加载 ServerEnv : ", mJson.JsonFormat(mJson.ToJson(ServerEnv)))
+}
+
+/* ==================================================================== */
+/* ================= UserEnv ================= */
+/* ==================================================================== */
+
 type UserEnvType struct {
-	Port           string    `json:"Port"`
-	UserID         string    `json:"UserID"`
-	HunterServerID string    `json:"HunterServerID"`
-	Email          EmailInfo `json:"Email"`
+	Port string `json:"Port"`
 }
 
 var UserEnv UserEnvType
@@ -35,13 +67,6 @@ func UserEnvInit() {
 	}
 
 	LoadUserEnv()
-
-	// 设置发件的 Email 信息
-	UserEnv.Email.Account = "hunter_data_center@mo7.cc"
-	UserEnv.Email.Password = "hIXY2pYSuxEz6Y5k"
-	UserEnv.Email.To = []string{
-		"meichangliang@mo7.cc",
-	}
 
 	Log.Println("加载 UserEnv : ", mJson.JsonFormat(mJson.ToJson(UserEnv)))
 }
