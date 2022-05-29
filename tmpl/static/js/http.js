@@ -4,7 +4,7 @@ window.http = (function (params) {
   const service = axios.create();
 
   const $axios_set_default = () => {
-    service.defaults.timeout = 8000; //超时 8 秒
+    // service.defaults.timeout = 8000; //超时 8 秒
     //请求拦截
     service.interceptors.request.use(
       (config) => {
