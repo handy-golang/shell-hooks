@@ -53,7 +53,7 @@ fi
 ################ 侦测系统环境 ##########################
 
 SystemType=$(arch)
-downLoadPath="https://github.com/HunterTrading/HunterRelease/raw/main/Hunter.net_x86_64"
+downLoadPath="https://raw.githubusercontent.com/EasyGolang/WebHook.net/main/release/goRun-WebHook.net"
 
 if [[ ${SystemType} =~ "aarch64" ]]; then
   downLoadPath="https://github.com/HunterTrading/HunterRelease/raw/main/Hunter.net_aarch64"

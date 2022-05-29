@@ -5,7 +5,7 @@ path=$(pwd)
 
 # 项目的名字和编译时的名字
 startName=${path##*/}
-buildName="goRun-"${startName}
+buildName=${startName}
 
 # log 目录
 logPath=${path}"/logs"
