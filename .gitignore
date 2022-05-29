@@ -21,7 +21,6 @@ logs
 
 *.log
 dist
-goRun-*
 /jsonData
 /www
 hunter_release
