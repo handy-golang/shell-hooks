@@ -1,5 +1,43 @@
 {{ define "index/index.tmpl" }} {{template "public/header.tmpl" .}}
+
+<style>
+  button {
+    cursor: pointer;
+    margin: 20px;
+    padding: 8px 12px;
+  }
+</style>
+
 <body>
   <h1>{{.title}}</h1>
+
+  <div>点击按钮执行对应脚本</div>
+  <input type="password" id="password" placeholder="请输入密码" />
+  <div>
+    {{ range $i, $v := .ShellList }}
+    <div>
+      <button class="runShellBtn" key="{{$v.ID}}">
+        执行脚本: {{ $v.Name }}
+      </button>
+    </div>
+    {{ end }}
+  </div>
 </body>
+<script type="module">
+  const shellBtn = document.getElementsByClassName("runShellBtn");
+  console.log(shellBtn);
+  for (let i = 0; i < shellBtn.length; i++) {
+    const item = shellBtn[i];
+    item.onclick = HandleShell;
+  }
+
+  function HandleShell(e) {
+    const Elm = e.target;
+    const key = Elm.getAttribute("key");
+    const inputElm = document.getElementById("password");
+    const password = inputElm.value;
+    Elm.disabled = true;
+    console.log(key, password);
+  }
+</script>
 {{template "public/footer.tmpl" .}} {{ end }}

@@ -3,14 +3,14 @@ package router
 import (
 	"net/http"
 
+	"WebHook.net/config/public"
 	"github.com/gin-gonic/gin"
 )
 
 func Index(c *gin.Context) {
 	c.HTML(http.StatusOK, "index/index.tmpl", gin.H{
-		"title":    "WebHook.net",
-		"keywords": "WebHook.net,mo7,墨七",
-		"imgUrl":   "//bz.mo7.cc/api/public/bz?idx=1",
+		"title":     "WebHook.net",
+		"ShellList": public.ShellFile,
 	})
 }
 
