@@ -13,4 +13,6 @@ user_config.yaml
 Port: "9999"
 # 需要执行的脚本的脚本的目录
 ShellPath: "./"
+# 密码
+Password: "123456"
 ```
