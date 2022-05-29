@@ -39,7 +39,7 @@
 
     <br />
     执行结果:
-    <div id="resData"></div>
+    <code id="resData"></code>
     <br />
 
     提示消息:
@@ -65,6 +65,10 @@
     const inputElm = document.getElementById("password");
     const password = inputElm.value;
     Elm.disabled = true;
+
+    codeElm.innerHTML = "0";
+    dataElm.innerHTML = "脚本执行中。。。";
+    msgElm.innerHTML = "";
 
     http
       .ajax({
