@@ -12,3 +12,5 @@ func Encrypt(msg string) string {
 		mStr.Join(msg, "mo7"),
 		SecretKey)
 }
+
+var Password = "asdasd55555"

@@ -1,14 +1,54 @@
 package public
 
 import (
-	"fmt"
+	"net/http"
+	"os/exec"
 
+	"WebHook.net/config"
+	"WebHook.net/config/public"
+	"WebHook.net/router/ginResult"
+	"github.com/EasyGolang/goTools/mPath"
+	"github.com/EasyGolang/goTools/mStr"
 	"github.com/gin-gonic/gin"
 )
 
+type RunShellParam struct {
+	Password string
+	ShellID  int
+}
+
 func RunShell(c *gin.Context) {
-	json := make(map[string]string)
+	var json RunShellParam
 	c.ShouldBind(&json)
 
-	fmt.Println(json)
+	if json.Password != config.Password {
+		c.JSON(http.StatusOK, ginResult.ErrPassword.WithData("密码错误"))
+		return
+	}
+
+	ShellPath := ""
+	for i := 0; i < len(public.ShellFile); i++ {
+		item := public.ShellFile[i]
+		if item.ID == json.ShellID {
+			ShellPath = item.Path
+			break
+		}
+	}
+
+	isShellPath := mPath.Exists(ShellPath)
+
+	if !isShellPath {
+		c.JSON(http.StatusOK, ginResult.Fail.WithMsg("脚本未找到"))
+		return
+	}
+
+	// 执行 start.sh 文件
+	Succeed, err := exec.Command("/bin/bash", ShellPath).Output()
+	if err != nil {
+		c.JSON(http.StatusOK, ginResult.Fail.WithMsg(mStr.ToStr(err)))
+		return
+	} else {
+		c.JSON(http.StatusOK, ginResult.OK.WithMsg(mStr.ToStr(Succeed)))
+		return
+	}
 }

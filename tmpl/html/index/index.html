@@ -48,7 +48,8 @@
         method: "post",
       })
       .then((res) => {
-        console.log(res);
+        const data = res.data;
+        console.log(data);
         Elm.disabled = false;
       })
       .catch((err) => {
