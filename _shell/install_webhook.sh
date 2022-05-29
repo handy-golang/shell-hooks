@@ -106,8 +106,12 @@ echo "
 
 sudo cat >${configFilePath} <<END
 
+# 服务启动端口号
 Port: "9999"
+# 存放脚本的目录
 ShellPath: "./"
+# 执行脚本时需要验证的密码
+Password: "123456"
 
 END
 sudo chmod 777 ${configFilePath}

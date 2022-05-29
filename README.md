@@ -1,8 +1,12 @@
 # WebHook.net
 
-## 部署脚本与配置文件
+非嵌入式的服务器脚本执行器
 
+## 安装
+
+```bash
 wget -qO- https://raw.githubusercontent.com/EasyGolang/WebHook.net/main/_shell/install_webhook.sh | bash
+```
 
 ## 配置文件讲解
 
@@ -16,3 +20,11 @@ ShellPath: "./"
 # 密码
 Password: "123456"
 ```
+
+## start.sh
+
+更新并重启服务
+
+## stop.sh
+
+停止并删除服务
