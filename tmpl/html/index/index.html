@@ -35,9 +35,7 @@
 
   <h3>脚本执行结果:</h3>
   <div id="res">
-    执行结果:
     <div id="resMsg"></div>
-
     <div id="resData"></div>
   </div>
 </body>
@@ -61,7 +59,6 @@
 
     msgElm.innerHTML = "脚本执行中。。。";
     dataElm.innerHTML = "";
-
     resElm.style.borderColor = "cornflowerblue";
 
     http
@@ -75,11 +72,9 @@
       })
       .then((res) => {
         const data = res.data;
-        codeElm.innerHTML = data.Code;
         dataElm.innerHTML = data.Data;
         msgElm.innerHTML = data.Msg;
 
-        console.log(data);
         if (data.Code > 0) {
           resElm.style.borderColor = "green";
         } else {
