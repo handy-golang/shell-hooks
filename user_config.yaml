@@ -1,1 +1,2 @@
 Port: "9999"
+ShellPath: "./_shell"

@@ -10,48 +10,12 @@ import (
 )
 
 /* ==================================================================== */
-/* ================= ServerEnv ================= */
-/* ==================================================================== */
-var ServerEnv struct {
-	ShellPath string
-}
-
-func LoadServerEnv(envPath string) {
-	viper.SetConfigFile(envPath)
-	err := viper.ReadInConfig()
-	if err != nil {
-		LogErr(" ServerEnv 读取配置文件出错 ", err)
-		return
-	}
-	viper.Unmarshal(&ServerEnv)
-}
-
-func ServerEnvInt() {
-	isHomeEnvFile := mPath.Exists(config.File.ServerEnv)
-	isAppEnvFile := mPath.Exists(config.File.AppServerEnv)
-
-	if isHomeEnvFile {
-		LoadServerEnv(config.File.ServerEnv)
-	}
-	if isAppEnvFile {
-		LoadServerEnv(config.File.AppServerEnv)
-	}
-
-	if !isHomeEnvFile && !isAppEnvFile {
-		errStr := fmt.Errorf(" 没找到 server_env.yaml 配置文件")
-		LogErr(errStr)
-		panic(errStr)
-	}
-
-	Log.Println("加载 ServerEnv : ", mJson.JsonFormat(mJson.ToJson(ServerEnv)))
-}
-
-/* ==================================================================== */
 /* ================= UserEnv ================= */
 /* ==================================================================== */
 
 type UserEnvType struct {
-	Port string `json:"Port"`
+	Port      string `json:"Port"`
+	ShellPath string `json:"ShellPath"`
 }
 
 var UserEnv UserEnvType

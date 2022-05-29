@@ -11,7 +11,7 @@ import (
 
 func Start() {
 	// 在这里读取文件列表,并打印 shell 文件
-	isShellPath := mPath.Exists(global.ServerEnv.ShellPath)
+	isShellPath := mPath.Exists(global.UserEnv.ShellPath)
 
 	if !isShellPath {
 		errStr := fmt.Errorf("配置文件不存在")
@@ -19,7 +19,7 @@ func Start() {
 		panic(errStr)
 	}
 
-	fileInfoList, err := ioutil.ReadDir(global.ServerEnv.ShellPath)
+	fileInfoList, err := ioutil.ReadDir(global.UserEnv.ShellPath)
 	if err != nil {
 		errorsStr := fmt.Errorf("目录读取失败")
 		panic(errorsStr)
@@ -27,7 +27,7 @@ func Start() {
 
 	for i := range fileInfoList {
 		name := fileInfoList[i].Name()
-		path := global.ServerEnv.ShellPath + "/" + name
+		path := global.UserEnv.ShellPath + "/" + name
 
 		if mPath.IsFile(path) {
 			SObj := public.ShellType{

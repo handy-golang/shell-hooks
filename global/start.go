@@ -21,9 +21,6 @@ func Start() {
 	Log.Println(mJson.JsonFormat(mJson.ToJson(AppPackage)))
 	Log.Println(mJson.JsonFormat(mJson.ToJson(config.Dir)))
 
-	// 加载系统配置文件
-	ServerEnvInt()
-
 	// 加载用户配置文件
 	UserEnvInit()
 
