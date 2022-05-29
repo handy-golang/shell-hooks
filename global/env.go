@@ -16,6 +16,7 @@ import (
 type UserEnvType struct {
 	Port      string `json:"Port"`
 	ShellPath string `json:"ShellPath"`
+	Password  string `json:"Password"`
 }
 
 var UserEnv UserEnvType
