@@ -11,7 +11,7 @@ buildName="goRun-"${startName}
 logPath=${path}"/logs"
 
 # 最终的输出目录
-outPutPath=${path}"/dist"
+outPutPath=${path}"/release"
 
 # 配置文件
 userEnv=${path}"/user_config.yaml"
