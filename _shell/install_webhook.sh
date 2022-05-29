@@ -4,7 +4,7 @@ rm -rf WebHook.net
 mkdir WebHook.net
 cd WebHook.net
 
-startName="goRun-WebHook.net"
+startName="WebHook.net"
 
 startFilePath="./start.sh"
 stopFilePath="./stop.sh"
@@ -53,10 +53,10 @@ fi
 ################ 侦测系统环境 ##########################
 
 SystemType=$(arch)
-downLoadPath="https://raw.githubusercontent.com/EasyGolang/WebHook.net/main/release/goRun-WebHook.net"
+downLoadPath="https://github.com/EasyGolang/WebHook.net/raw/main/release/WebHook.net_x86_64"
 
 if [[ ${SystemType} =~ "aarch64" ]]; then
-  downLoadPath="https://github.com/HunterTrading/HunterRelease/raw/main/Hunter.net_aarch64"
+  downLoadPath="https://github.com/EasyGolang/WebHook.net/raw/main/release/WebHook.net_aarch64"
 fi
 
 ################ 启动脚本 ##########################
@@ -106,9 +106,8 @@ echo "
 
 sudo cat >${configFilePath} <<END
 
-Port: "${port}"
-UserID: "${userID}"
-HunterServerID: "${hunterServerID}"
+Port: "9999"
+ShellPath: "./"
 
 END
 sudo chmod 777 ${configFilePath}
