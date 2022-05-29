@@ -14,6 +14,8 @@ func Router(router *gin.RouterGroup) {
 
 	router.POST("/shell_run", RunShell)
 
+	router.POST("/github_webhooks", GitHun)
+
 	router.GET("/ping", middleWare.GetPing)
 	router.POST("/ping", middleWare.PostPing)
 }
