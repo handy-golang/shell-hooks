@@ -37,7 +37,23 @@
     const inputElm = document.getElementById("password");
     const password = inputElm.value;
     Elm.disabled = true;
-    console.log(key, password);
+
+    http
+      .ajax({
+        url: "/api/public/shell_run",
+        data: {
+          Password: password,
+          ShellID: Number(key),
+        },
+        method: "post",
+      })
+      .then((res) => {
+        console.log(res);
+        Elm.disabled = false;
+      })
+      .catch((err) => {
+        Elm.disabled = false;
+      });
   }
 </script>
 {{template "public/footer.tmpl" .}} {{ end }}

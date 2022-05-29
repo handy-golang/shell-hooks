@@ -1,19 +1,9 @@
 window.http = (function (params) {
   const axios = window.axios;
 
-  const axios_baseURL = "//bz.mo7.cc";
-  if (origin.includes("localhost")) {
-    // axios_baseURL = baseUrl;
-  } else if (origin.includes("xxxx")) {
-    // baseUrl = '';
-  } else if (origin.includes("xxxx")) {
-    // baseUrl = '';
-  }
-
   const service = axios.create();
 
   const $axios_set_default = () => {
-    service.defaults.baseURL = axios_baseURL; //默认请求的 baseUrl
     service.defaults.timeout = 8000; //超时 8 秒
     //请求拦截
     service.interceptors.request.use(
