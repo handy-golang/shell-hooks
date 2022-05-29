@@ -4,6 +4,7 @@ import (
 	_ "embed"
 
 	"WebHook.net/global"
+	"WebHook.net/observe"
 	"WebHook.net/router"
 	jsoniter "github.com/json-iterator/go"
 )
@@ -17,6 +18,8 @@ func main() {
 	jsoniter.Unmarshal(AppPackage, &global.AppPackage)
 	// // 初始化系统参数
 	global.Start()
+
+	observe.Start()
 
 	router.Start()
 }
