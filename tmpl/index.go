@@ -3,7 +3,7 @@ package tmpl
 import (
 	"embed"
 
-	"WebHook.net/static"
+	"WebHook.net/assets"
 )
 
 //go:embed email.html
@@ -14,7 +14,7 @@ type EmailParam struct {
 	SysTime string
 }
 
-var Static = static.Templates
+var Assets = assets.Templates
 
 //go:embed *
 var Html embed.FS

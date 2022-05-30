@@ -33,7 +33,7 @@ func Start() {
 	tmplObj := template.Must(template.New("").ParseFS(tmpl.Html, "**/*"))
 	router.SetHTMLTemplate(tmplObj)
 
-	router.StaticFS("/static", http.FS(tmpl.Static))
+	router.StaticFS("/assets", http.FS(tmpl.Assets))
 
 	// 404 处理
 	router.NoRoute(NotFund)
