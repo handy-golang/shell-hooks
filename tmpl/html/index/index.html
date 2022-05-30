@@ -47,18 +47,17 @@
 <script type="module">
   $('.runShellBtn').click(HandleShell);
 
-  function HandleShell(e) {
-    const Elm = e.target;
-    const key = Elm.getAttribute('key');
-    const inputElm = document.getElementById('password');
-    const password = inputElm.value;
-    Elm.disabled = true;
+  function HandleShell() {
+    const _this = $(this);
+    const key = _this.attr('key');
+    const password = $('#password').val();
+
+    _this.disabled = true;
 
     $('#resMsg').html('脚本执行中。。。');
     $('#resData').html('');
 
-    var resElm = $('#res')[0];
-    resElm.style.borderColor = 'cornflowerblue';
+    $('#res').css('border-color', 'cornflowerblue');
 
     http
       .ajax({
@@ -75,14 +74,14 @@
         $('#resData').html(data.Data);
 
         if (data.Code > 0) {
-          resElm.style.borderColor = 'green';
+          $('#res').css('border-color', 'green');
         } else {
-          resElm.style.borderColor = 'red';
+          $('#res').css('border-color', 'red');
         }
-        Elm.disabled = false;
+        _this.disabled = false;
       })
       .catch((err) => {
-        Elm.disabled = false;
+        _this.disabled = false;
       });
   }
 </script>
