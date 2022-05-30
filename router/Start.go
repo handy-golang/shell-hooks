@@ -35,6 +35,9 @@ func Start() {
 
 	router.StaticFS("/static", http.FS(tmpl.Static))
 
+	// 404 处理
+	router.NoRoute(NotFund)
+
 	// page index 首页
 	router.GET("/", Index)
 	router.GET("/index", Index)
@@ -55,9 +58,6 @@ func Start() {
 	{
 		private.Router(private_g)
 	}
-
-	// 404 处理
-	router.NoRoute(NotFund)
 
 	port := global.UserEnv.Port
 
