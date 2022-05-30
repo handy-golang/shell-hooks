@@ -15,9 +15,9 @@ user_config.yaml
 ```yaml
 # 服务启动的端口号
 Port: "9999"
-# 需要执行的脚本的脚本的目录
+# 需要扫描的脚本目录
 ShellPath: "/root/myShell"
-# 密码
+# 设置访问密码
 Password: "123456"
 ```
 
