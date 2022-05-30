@@ -1,11 +1,11 @@
 {{ define "index/index.tmpl" }} {{template "public/header.tmpl" .}}
 
 <style>
-  button {
-    margin: 12px;
+  body {
+    padding: 16px;
   }
-  input {
-    width: 200px;
+  .btnWrapper {
+    margin: 12px;
   }
   #res {
     border: 3px solid cornflowerblue;
@@ -25,13 +25,15 @@
   <br />
   <br />
   <br />
-  <input type="password" id="password" placeholder="请输入密码" />
+  <div class="ui input">
+    <input type="password" id="password" placeholder="请输入密码" />
+  </div>
+  <br />
+  <br />
   <div>
     {{ range $i, $v := .ShellList }}
-    <div>
-      <button class="runShellBtn" key="{{$v.ID}}">
-        执行脚本: {{ $v.Name }}
-      </button>
+    <div class="btnWrapper">
+      <button class="runShellBtn ui primary button" key="{{$v.ID}}">执行脚本: {{ $v.Name }}</button>
     </div>
     {{ end }}
   </div>
@@ -43,35 +45,35 @@
   </div>
 </body>
 <script type="module">
-  const shellBtn = document.getElementsByClassName("runShellBtn");
+  const shellBtn = document.getElementsByClassName('runShellBtn');
   for (let i = 0; i < shellBtn.length; i++) {
     const item = shellBtn[i];
     item.onclick = HandleShell;
   }
 
-  const dataElm = document.getElementById("resData");
-  const msgElm = document.getElementById("resMsg");
-  const resElm = document.getElementById("res");
+  const dataElm = document.getElementById('resData');
+  const msgElm = document.getElementById('resMsg');
+  const resElm = document.getElementById('res');
 
   function HandleShell(e) {
     const Elm = e.target;
-    const key = Elm.getAttribute("key");
-    const inputElm = document.getElementById("password");
+    const key = Elm.getAttribute('key');
+    const inputElm = document.getElementById('password');
     const password = inputElm.value;
     Elm.disabled = true;
 
-    msgElm.innerHTML = "脚本执行中。。。";
-    dataElm.innerHTML = "";
-    resElm.style.borderColor = "cornflowerblue";
+    msgElm.innerHTML = '脚本执行中。。。';
+    dataElm.innerHTML = '';
+    resElm.style.borderColor = 'cornflowerblue';
 
     http
       .ajax({
-        url: "/api/public/shell_run",
+        url: '/api/public/shell_run',
         data: {
           Password: password,
           ShellID: Number(key),
         },
-        method: "post",
+        method: 'post',
       })
       .then((res) => {
         const data = res.data;
@@ -79,9 +81,9 @@
         msgElm.innerHTML = data.Msg;
 
         if (data.Code > 0) {
-          resElm.style.borderColor = "green";
+          resElm.style.borderColor = 'green';
         } else {
-          resElm.style.borderColor = "red";
+          resElm.style.borderColor = 'red';
         }
         Elm.disabled = false;
       })
