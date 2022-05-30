@@ -3,7 +3,7 @@ package global
 import (
 	"fmt"
 
-	"WebHook.net/config"
+	"WebHook.net/global/config"
 	"github.com/EasyGolang/goTools/mJson"
 	"github.com/EasyGolang/goTools/mPath"
 	viper "github.com/spf13/viper"

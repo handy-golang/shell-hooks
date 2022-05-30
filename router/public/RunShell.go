@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"os/exec"
 
-	"WebHook.net/config/public"
 	"WebHook.net/global"
+	"WebHook.net/global/config/public"
 	"WebHook.net/router/ginResult"
 	"github.com/EasyGolang/goTools/mPath"
 	"github.com/EasyGolang/goTools/mStr"

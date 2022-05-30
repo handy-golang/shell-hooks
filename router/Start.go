@@ -8,8 +8,8 @@ import (
 	"os"
 	"time"
 
-	"WebHook.net/config"
 	"WebHook.net/global"
+	"WebHook.net/global/config"
 	"WebHook.net/router/middleWare"
 	"WebHook.net/router/private"
 	"WebHook.net/router/public"

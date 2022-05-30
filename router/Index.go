@@ -3,8 +3,8 @@ package router
 import (
 	"net/http"
 
-	"WebHook.net/config/public"
 	"WebHook.net/global"
+	"WebHook.net/global/config/public"
 	"github.com/gin-gonic/gin"
 )
 

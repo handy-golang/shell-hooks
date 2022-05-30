@@ -1,4 +1,4 @@
-package observe
+package ready
 
 import (
 	"fmt"
@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 	"time"
 
-	"WebHook.net/config/public"
 	"WebHook.net/global"
+	"WebHook.net/global/config/public"
 	"github.com/EasyGolang/goTools/mCycle"
 	"github.com/EasyGolang/goTools/mPath"
 )

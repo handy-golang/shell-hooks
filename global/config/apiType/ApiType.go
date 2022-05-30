@@ -1,8 +1,8 @@
 package apiType
 
 import (
-	"WebHook.net/config"
 	"WebHook.net/global"
+	"WebHook.net/global/config"
 )
 
 type SysConfig struct {

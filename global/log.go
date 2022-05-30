@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"WebHook.net/config"
+	"WebHook.net/global/config"
 	"github.com/EasyGolang/goTools/mLog"
 	"github.com/EasyGolang/goTools/mPath"
 )

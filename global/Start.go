@@ -3,7 +3,7 @@ package global
 import (
 	"time"
 
-	"WebHook.net/config"
+	"WebHook.net/global/config"
 	"github.com/EasyGolang/goTools/mCycle"
 	"github.com/EasyGolang/goTools/mJson"
 )
