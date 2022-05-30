@@ -48,11 +48,10 @@
   $('.runShellBtn').click(HandleShell);
 
   function HandleShell() {
-    const _this = $(this);
-    const key = _this.attr('key');
+    const key = $(this).attr('key');
     const password = $('#password').val();
 
-    _this.disabled = true;
+    this.disabled = true;
 
     $('#resMsg').html('脚本执行中。。。');
     $('#resData').html('');
@@ -78,10 +77,10 @@
         } else {
           $('#res').css('border-color', 'red');
         }
-        _this.disabled = false;
+        this.disabled = false;
       })
       .catch((err) => {
-        _this.disabled = false;
+        this.disabled = false;
       });
   }
 </script>
