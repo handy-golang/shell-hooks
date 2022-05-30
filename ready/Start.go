@@ -4,12 +4,14 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 
 	"WebHook.net/global"
 	"WebHook.net/global/config/public"
 	"github.com/EasyGolang/goTools/mCycle"
 	"github.com/EasyGolang/goTools/mPath"
+	"github.com/EasyGolang/goTools/mStr"
 )
 
 func Start() {
@@ -45,10 +47,15 @@ func SetShell() {
 		if mPath.IsFile(file) {
 
 			filePath, _ := filepath.Abs(file)
+			pathArr := strings.Split(filePath, mStr.ToStr(os.PathSeparator))
 
 			SObj := public.ShellType{
-				ID:   key,
-				Name: file,
+				ID: key,
+				Name: mStr.Join(
+					pathArr[len(pathArr)-2],
+					mStr.ToStr(os.PathSeparator),
+					pathArr[len(pathArr)-1],
+				),
 				Path: filePath,
 			}
 
