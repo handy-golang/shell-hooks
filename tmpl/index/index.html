@@ -75,11 +75,15 @@
         $('#resData').html(data.Data);
 
         if (data.Code > 0) {
+          this.disabled = false;
           $('#res').css('border-color', 'green');
         } else {
           $('#res').css('border-color', 'red');
         }
-        this.disabled = false;
+
+        if (data.Code === -6) {
+          this.disabled = false;
+        }
       });
   }
 </script>
