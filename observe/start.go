@@ -3,7 +3,6 @@ package observe
 import (
 	"fmt"
 	"os"
-	"path"
 	"path/filepath"
 	"time"
 
@@ -43,10 +42,13 @@ func SetShell() {
 
 	for key, file := range files {
 		if mPath.IsFile(file) {
+
+			fullPath, _ := filepath.Abs(file)
+
 			SObj := public.ShellType{
 				ID:   key,
-				Name: path.Base(file),
-				Path: file,
+				Name: file,
+				Path: fullPath,
 			}
 
 			public.ShellFile = append(public.ShellFile, SObj)

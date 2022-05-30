@@ -14,7 +14,7 @@ window.http = (function (params) {
       (error) => {
         console.error(error);
         return Promise.reject(error);
-      }
+      },
     );
 
     //响应拦截
@@ -25,7 +25,7 @@ window.http = (function (params) {
       },
       (error) => {
         return Promise.reject(error);
-      }
+      },
     );
   };
 
@@ -37,7 +37,7 @@ window.http = (function (params) {
       ...param,
     };
     //请求参数转换
-    if (config.method === "get" || !config.method) {
+    if (config.method === 'get' || !config.method) {
       config.params = config.data;
       delete config.data;
     }
