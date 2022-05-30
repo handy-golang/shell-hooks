@@ -8,7 +8,7 @@
     margin: 12px auto;
   }
   .pwdInput {
-    width: 300px;
+    width: 200px;
   }
   #res {
     border: 3px solid cornflowerblue;
@@ -20,23 +20,22 @@
 </style>
 
 <body>
-  <h1>{{.title}}</h1>
+  <h1>WebHook.net</h1>
 
-  <div>版本 {{.Ping}}</div>
+  <div>当前服务版本: {{.AppPackage.Version}}</div>
 
-  <div>点击按钮执行对应脚本</div>
-  <br />
-  <br />
   <br />
   <div class="pwdInput ui input">
     <input type="password" id="password" placeholder="请输入密码" />
   </div>
   <br />
-  <br />
   <div>
     {{ range $i, $v := .ShellList }}
     <div class="btnWrapper">
-      <button class="runShellBtn ui primary button" key="{{$v.ID}}">执行脚本: {{ $v.Name }}</button>
+      <button class="runShellBtn ui primary button" key="{{$v.ID}}">
+        执行
+        <span> {{ $v.Name }} </span>
+      </button>
     </div>
     {{ end }}
   </div>

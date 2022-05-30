@@ -21,18 +21,18 @@ func Start() {
 
 func SetShell() {
 	// 在这里读取文件列表,并打印 shell 文件
-	isShellPath := mPath.Exists(global.UserEnv.ShellPath)
+	ShellDir, _ := filepath.Abs(global.UserEnv.ShellPath)
+	isShellDir := mPath.Exists(ShellDir)
 
-	if !isShellPath {
-		errStr := fmt.Errorf("目录不存在: " + global.UserEnv.ShellPath)
+	if !isShellDir {
+		errStr := fmt.Errorf("目录不存在: " + ShellDir)
 		global.LogErr(errStr)
 		panic(errStr)
 	}
 
 	var files []string
-	root := global.UserEnv.ShellPath
 
-	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
+	err := filepath.Walk(ShellDir, func(path string, info os.FileInfo, err error) error {
 		files = append(files, path)
 		return nil
 	})
@@ -44,12 +44,12 @@ func SetShell() {
 	for key, file := range files {
 		if mPath.IsFile(file) {
 
-			fullPath, _ := filepath.Abs(file)
+			filePath, _ := filepath.Abs(file)
 
 			SObj := public.ShellType{
 				ID:   key,
 				Name: file,
-				Path: fullPath,
+				Path: filePath,
 			}
 
 			shellArr = append(shellArr, SObj)
