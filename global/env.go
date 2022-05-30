@@ -26,7 +26,7 @@ func UserEnvInit() {
 	// 检查配置文件在不在
 	isUserEnvPath := mPath.Exists(config.File.UserConfig)
 	if !isUserEnvPath {
-		errStr := fmt.Errorf("配置文件不存在")
+		errStr := fmt.Errorf("缺少文件: " + config.File.UserConfig)
 		LogErr(errStr)
 		panic(errStr)
 	}

@@ -24,7 +24,7 @@ func SetShell() {
 	isShellPath := mPath.Exists(global.UserEnv.ShellPath)
 
 	if !isShellPath {
-		errStr := fmt.Errorf("配置文件不存在")
+		errStr := fmt.Errorf("目录不存在: " + global.UserEnv.ShellPath)
 		global.LogErr(errStr)
 		panic(errStr)
 	}
