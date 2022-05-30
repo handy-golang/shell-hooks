@@ -8,6 +8,7 @@ import (
 	"WebHook.net/global/config"
 	"github.com/EasyGolang/goTools/mLog"
 	"github.com/EasyGolang/goTools/mPath"
+	"github.com/EasyGolang/goTools/mTime"
 )
 
 var Log *log.Logger // 系统日志& 重大错误或者事件
@@ -23,6 +24,11 @@ func LogInt() {
 	Log = mLog.NewLog(mLog.NewLogParam{
 		Path: config.Dir.Log,
 		Name: "Sys",
+	})
+
+	mLog.Clear(mLog.ClearParam{
+		Path:      config.Dir.Log,
+		ClearTime: mTime.UnixTimeInt64.Day * 10,
 	})
 }
 
