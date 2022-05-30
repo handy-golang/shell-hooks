@@ -45,15 +45,7 @@
   </div>
 </body>
 <script type="module">
-  const shellBtn = document.getElementsByClassName('runShellBtn');
-  for (let i = 0; i < shellBtn.length; i++) {
-    const item = shellBtn[i];
-    item.onclick = HandleShell;
-  }
-
-  const dataElm = document.getElementById('resData');
-  const msgElm = document.getElementById('resMsg');
-  const resElm = document.getElementById('res');
+  $('.runShellBtn').click(HandleShell);
 
   function HandleShell(e) {
     const Elm = e.target;
@@ -62,8 +54,10 @@
     const password = inputElm.value;
     Elm.disabled = true;
 
-    msgElm.innerHTML = '脚本执行中。。。';
-    dataElm.innerHTML = '';
+    $('#resMsg').html('脚本执行中。。。');
+    $('#resData').html('');
+
+    var resElm = $('#res')[0];
     resElm.style.borderColor = 'cornflowerblue';
 
     http
@@ -77,8 +71,8 @@
       })
       .then((res) => {
         const data = res.data;
-        dataElm.innerHTML = data.Data;
-        msgElm.innerHTML = data.Msg;
+        $('#resMsg').html(data.Msg);
+        $('#resData').html(data.Data);
 
         if (data.Code > 0) {
           resElm.style.borderColor = 'green';
