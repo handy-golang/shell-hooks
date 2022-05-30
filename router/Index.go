@@ -11,7 +11,7 @@ import (
 func Index(c *gin.Context) {
 	c.HTML(http.StatusOK, "index/index.tmpl", gin.H{
 		"title":     "WebHook.net",
-		"ShellList": public.ShellFile,
+		"ShellList": public.ShellFiles,
 		"Ping":      global.AppPackage.Version,
 	})
 }

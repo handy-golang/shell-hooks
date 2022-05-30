@@ -6,4 +6,4 @@ type ShellType struct {
 	Path string `json:"Path"`
 }
 
-var ShellFile = []ShellType{}
+var ShellFiles = []ShellType{}

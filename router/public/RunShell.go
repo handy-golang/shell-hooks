@@ -27,8 +27,8 @@ func RunShell(c *gin.Context) {
 	}
 
 	ShellPath := ""
-	for i := 0; i < len(public.ShellFile); i++ {
-		item := public.ShellFile[i]
+	for i := 0; i < len(public.ShellFiles); i++ {
+		item := public.ShellFiles[i]
 		if item.ID == json.ShellID {
 			ShellPath = item.Path
 			break

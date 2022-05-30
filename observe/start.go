@@ -40,6 +40,7 @@ func SetShell() {
 		panic(err)
 	}
 
+	shellArr := []public.ShellType{}
 	for key, file := range files {
 		if mPath.IsFile(file) {
 
@@ -51,7 +52,9 @@ func SetShell() {
 				Path: fullPath,
 			}
 
-			public.ShellFile = append(public.ShellFile, SObj)
+			shellArr = append(shellArr, SObj)
 		}
 	}
+
+	public.ShellFiles = shellArr
 }
