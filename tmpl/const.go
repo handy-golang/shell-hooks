@@ -3,8 +3,8 @@ package tmpl
 import (
 	_ "embed"
 
+	"WebHook.net/static"
 	"WebHook.net/tmpl/html"
-	"WebHook.net/tmpl/static"
 )
 
 //go:embed email.html
