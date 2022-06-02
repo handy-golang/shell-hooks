@@ -1,6 +1,7 @@
 package middleWare
 
 import (
+	"github.com/EasyGolang/goTools/mGin"
 	"github.com/gin-gonic/gin"
 )
 
@@ -10,6 +11,9 @@ func Public(c *gin.Context) {
 
 	// 授权验证
 	// EncryptAuth(c)
+
+	// 允许跨域
+	mGin.CrossDomain()(c)
 
 	c.Next()
 }
