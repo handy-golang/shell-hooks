@@ -21,18 +21,16 @@
 
 <body>
   <h1>WebHook.net</h1>
-
   <div>当前服务版本: {{.AppPackage.Version}}</div>
-
   <br />
-  <div class="pwdInput ui input">
+  <div class="pwdInput">
     <input type="password" id="password" placeholder="请输入密码" />
   </div>
   <br />
   <div>
     {{ range $i, $v := .ShellList }}
     <div class="btnWrapper">
-      <button class="runShellBtn ui primary button" key="{{$v.ID}}">
+      <button class="runShellBtn" key="{{$v.ID}}">
         执行
         <span> {{ $v.Name }} </span>
       </button>
