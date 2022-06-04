@@ -14,18 +14,19 @@ user_config.yaml
 
 ```yaml
 # 服务启动的端口号
-Port: "9999"
+Port: '9999'
 # 需要扫描的脚本目录
-ShellPath: "/root/myShell"
+ShellPath: '/root/myShell'
 # 设置访问密码
-Password: "123456"
+Password: '123456'
 ```
 
-> 程序会自动扫描 ShellPath 目录下的所有文件 
+> 程序会自动扫描 ShellPath 目录下的所有文件
 
 ## start.sh
 
 更新并重启服务
+
 > 修改配置文件之后请执行该脚本重启服务
 
 程序启动后，打开对应端口的服务即可
@@ -33,3 +34,11 @@ Password: "123456"
 ## stop.sh
 
 停止并删除服务
+
+## 使用一些第三方库为
+
+https://github.com/fabiospampinato/cash
+
+https://purecss.io/
+
+https://github.com/EasyGolang/goTools

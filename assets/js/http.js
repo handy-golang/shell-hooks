@@ -1,4 +1,4 @@
-window.http = (function (params) {
+window.http = (function () {
   const axios = window.axios;
 
   const service = axios.create();
