@@ -4,11 +4,9 @@
   body {
     padding: 16px;
   }
-  .btnWrapper {
+  .runShellBtn {
+    cursor: pointer;
     margin: 12px auto;
-  }
-  .pwdInput {
-    width: 200px;
   }
   #res {
     border: 3px solid cornflowerblue;
@@ -23,19 +21,19 @@
   <h1>WebHook.net</h1>
   <div>当前服务版本: {{.AppPackage.Version}}</div>
   <br />
-  <div class="pwdInput">
+  <div>
     <input type="password" id="password" placeholder="请输入密码" />
   </div>
   <br />
   <div>
     {{ range $i, $v := .ShellList }}
-    <div class="btnWrapper">
-      <button class="runShellBtn" key="{{$v.ID}}">
+    <div>
+      <button class="runShellBtn pure-button pure-button-primary" key="{{$v.ID}}">
         执行
         <span> {{ $v.Name }} </span>
       </button>
+      {{ end }}
     </div>
-    {{ end }}
   </div>
 
   <h3>脚本执行结果:</h3>
@@ -45,7 +43,8 @@
   </div>
 </body>
 <script type="module">
-  $('.runShellBtn').click(HandleShell);
+  console.log($);
+  $('.runShellBtn').on('click', HandleShell);
 
   function HandleShell() {
     const key = $(this).attr('key');
