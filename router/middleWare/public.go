@@ -1,7 +1,7 @@
 package middleWare
 
 import (
-	"github.com/EasyGolang/goTools/mGin"
+	"WebHook.net/global/config"
 	"github.com/gin-gonic/gin"
 )
 
@@ -9,11 +9,10 @@ func Public(c *gin.Context) {
 	// 添加访问头
 	AddHeader(c)
 
+	config.Encrypt(c.Request.URL.Path)
+
 	// 授权验证
 	// EncryptAuth(c)
-
-	// 允许跨域
-	mGin.CrossDomain()(c)
 
 	c.Next()
 }
