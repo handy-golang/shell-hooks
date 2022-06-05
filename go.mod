@@ -3,7 +3,7 @@ module WebHook.net
 go 1.18
 
 require (
-	github.com/EasyGolang/goTools v0.9.4
+	github.com/EasyGolang/goTools v0.10.1
 	github.com/gin-gonic/gin v1.7.7
 	github.com/json-iterator/go v1.1.12
 	github.com/juju/ratelimit v1.0.1
