@@ -2,6 +2,7 @@ package private
 
 import (
 	"WebHook.net/router/middleWare"
+	"WebHook.net/router/private/sys"
 	"github.com/gin-gonic/gin"
 )
 
@@ -13,6 +14,8 @@ import (
 func Router(router *gin.RouterGroup) {
 	router.GET("", middleWare.Index(" /api/private 接口首页 "))
 	router.GET("/", middleWare.Index(" /api/private 接口首页 "))
+
+	router.POST("/sys/start", sys.Start)
 
 	router.GET("/ping", middleWare.GetPing)
 	router.POST("/ping", middleWare.PostPing)

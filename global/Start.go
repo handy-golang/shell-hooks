@@ -1,11 +1,13 @@
 package global
 
 import (
+	"fmt"
 	"time"
 
 	"WebHook.net/global/config"
 	"github.com/EasyGolang/goTools/mCycle"
 	"github.com/EasyGolang/goTools/mJson"
+	"github.com/EasyGolang/goTools/mPath"
 )
 
 func Start() {
@@ -20,6 +22,19 @@ func Start() {
 
 	Log.Println(mJson.JsonFormat(mJson.ToJson(AppPackage)))
 	Log.Println(mJson.JsonFormat(mJson.ToJson(config.Dir)))
+
+	isStartShell := mPath.Exists(config.File.StartShell)
+	if !isStartShell {
+		errStr := fmt.Errorf("缺少文件:" + config.File.StartShell)
+		LogErr(errStr)
+		panic(errStr)
+	}
+	isStoptShell := mPath.Exists(config.File.StopShell)
+	if !isStoptShell {
+		errStr := fmt.Errorf("缺少文件:" + config.File.StopShell)
+		LogErr(errStr)
+		panic(errStr)
+	}
 
 	// 加载用户配置文件
 	UserEnvInit()
