@@ -23,17 +23,23 @@ Password: '123456'
 
 > 程序会自动扫描 ShellPath 目录下的所有文件
 
-## start.sh
+## 脚本规范
 
-更新并重启服务
+```bash
+#!/bin/bash
+##WebHook:~部署WebHook.net~
 
-> 修改配置文件之后请执行该脚本重启服务
+#############
 
-程序启动后，打开对应端口的服务即可
+npm run build
 
-## stop.sh
+npm run git
 
-停止并删除服务
+npm run sync
+
+```
+
+> 程序会读取文件中的 `##WebHook:~***~` 的 shell 文件，将其中的 `***` 作为脚本的名称，具有名称的脚本才会被程序所读取
 
 ## 使用一些第三方库为
 

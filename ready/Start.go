@@ -2,9 +2,10 @@ package ready
 
 import (
 	"fmt"
+	"io/ioutil"
 	"os"
 	"path/filepath"
-	"strings"
+	"regexp"
 	"time"
 
 	"WebHook.net/global"
@@ -44,18 +45,14 @@ func SetShell() {
 
 	shellArr := []public.ShellType{}
 	for key, file := range files {
-		if mPath.IsFile(file) {
+		shellName := ReadShellName(file)
+		if len(shellName) > 0 {
 
 			filePath, _ := filepath.Abs(file)
-			pathArr := strings.Split(filePath, mStr.ToStr(os.PathSeparator))
 
 			SObj := public.ShellType{
-				ID: key,
-				Name: mStr.Join(
-					pathArr[len(pathArr)-2],
-					mStr.ToStr(os.PathSeparator),
-					pathArr[len(pathArr)-1],
-				),
+				ID:   key,
+				Name: shellName,
 				Path: filePath,
 			}
 
@@ -64,4 +61,27 @@ func SetShell() {
 	}
 
 	public.ShellFiles = shellArr
+}
+
+func ReadShellName(filePath string) string {
+	isFile := mPath.IsFile(filePath)
+	if !isFile {
+		return ""
+	}
+
+	fileData, err := ioutil.ReadFile(filePath)
+	if err != nil {
+		return ""
+	}
+
+	fileStr := mStr.ToStr(fileData)
+
+	compileRegex := regexp.MustCompile(`##WebHook:~(.*?)~`)
+	matchArr := compileRegex.FindStringSubmatch(fileStr)
+
+	if len(matchArr) > 1 {
+		return matchArr[1]
+	}
+
+	return ""
 }

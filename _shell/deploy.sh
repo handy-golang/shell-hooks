@@ -1,5 +1,5 @@
 #!/bin/bash
-##name:开始部署
+##WebHook:~部署WebHook.net~
 # 加载变量
 source "./_shell/init.sh"
 #############
