@@ -4,13 +4,16 @@
   body {
     padding: 16px;
   }
+
   .runShellBtn {
     cursor: pointer;
     margin: 12px auto;
   }
+
   #res {
     border: 3px solid cornflowerblue;
   }
+
   #res div {
     padding: 10px;
     white-space: pre-line;
@@ -19,21 +22,23 @@
 
 <body>
   <h1>WebHook.net</h1>
+
   <div>当前服务版本: {{.AppPackage.Version}}</div>
+  <div>项目仓库地址: https://github.com/EasyGolang/WebHook.net</div>
   <br />
+
   <div class="pure-form">
     <input type="password" id="password" placeholder="请输入密码" />
   </div>
+
   <br />
+
   <div>
     {{ range $i, $v := .ShellList }}
     <div>
-      <button class="runShellBtn pure-button pure-button-primary" key="{{$v.ID}}">
-        执行
-        <span> {{ $v.Name }} </span>
-      </button>
-      {{ end }}
+      <button class="runShellBtn pure-button pure-button-primary" key="{{$v.ID}}">{{ $v.Name }}</button>
     </div>
+    {{ end }}
   </div>
 
   <h3>脚本执行结果:</h3>
