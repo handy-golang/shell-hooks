@@ -1,8 +1,6 @@
 window.http = (function () {
   const axios = window.axios;
-
   const service = axios.create();
-
   const $axios_set_default = () => {
     // service.defaults.timeout = 8000; //超时 8 秒
     //请求拦截
@@ -33,7 +31,9 @@ window.http = (function () {
 
   const ajax = (param) => {
     const config = {
-      headers: {},
+      headers: {
+        'Auth-Encrypt': mo7Encrypt(param.url),
+      },
       ...param,
     };
     //请求参数转换

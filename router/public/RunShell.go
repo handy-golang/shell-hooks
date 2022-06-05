@@ -5,6 +5,7 @@ import (
 	"os/exec"
 
 	"WebHook.net/global"
+	"WebHook.net/global/config"
 	"WebHook.net/global/config/public"
 	"WebHook.net/router/ginResult"
 	"github.com/EasyGolang/goTools/mPath"
@@ -21,7 +22,7 @@ func RunShell(c *gin.Context) {
 	var json RunShellParam
 	c.ShouldBind(&json)
 
-	if json.Password != global.UserEnv.Password {
+	if json.Password != config.Encrypt(global.UserEnv.Password) {
 		c.JSON(http.StatusOK, ginResult.ErrPassword.WithData("密码错误"))
 		return
 	}
