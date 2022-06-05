@@ -21,7 +21,8 @@ ShellPath: '/root/myShell'
 Password: '123456'
 ```
 
-> 程序会自动扫描 ShellPath 目录下的所有文件
+> 程序每 2 分钟会自动扫描一次 ShellPath 目录
+> 修改配置文件后,请执行目录下的 ./start.sh 脚本 或点击页面上的 `重启并更新 WebHook.net` 按钮
 
 ## 脚本规范
 
