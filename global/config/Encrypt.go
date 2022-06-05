@@ -1,21 +1,17 @@
 package config
 
 import (
-	"fmt"
 	"time"
 
 	"github.com/EasyGolang/goTools/mEncrypt"
 	"github.com/EasyGolang/goTools/mStr"
 )
 
-var SecretKey = mEncrypt.MD5("WebHook is good")
+var SecretKey = mEncrypt.MD5("WebHook.net from mo7")
 
 func Encrypt(msg string) string {
-	now := time.Now().Unix() / 60
-
-	fmt.Println(now)
-
+	now := time.Now().Unix() / 30 // 分钟秒级别
 	return mEncrypt.Sha256(
-		mStr.Join(msg, "mo7"),
+		mStr.Join(msg, "mo7", now),
 		SecretKey)
 }
