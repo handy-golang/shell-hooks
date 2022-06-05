@@ -45,10 +45,12 @@
         const data = res.data;
 
         if (data.Code > 0) {
-          $('#reStartMsg').css('border-color', 'green').html(data.Msg);
+          $('#reStartMsg')
+            .css('border-color', 'green')
+            .html(data.Msg + ', 程序将会从 github.com 下载最新版,并自动重启');
           setTimeout(() => {
             window.location.reload(true);
-          }, 2000);
+          }, 5000);
         } else {
           $('#reStartMsg').css('border-color', 'red').html(data.Msg);
         }
