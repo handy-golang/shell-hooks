@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # 项目根目录
 path=$(pwd)
 
