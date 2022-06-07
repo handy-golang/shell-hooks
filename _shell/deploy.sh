@@ -7,8 +7,15 @@ source "./_shell/init.sh"
 npm run build &&
   npm run git
 
+nowTime=$(date +%Y-%m-%d\T%H:%M:%S)
+
 cd ${outPutPath}
 
-node ${path}"/_shell/sftp.mjs"
+git init
+git add .
+git commit -m ${nowTime}
+git remote add origin git@github.com:mo7static/ShellHooks.git
+git push -f --set-upstream origin master:main
+echo "同步完成"
 
 exit
