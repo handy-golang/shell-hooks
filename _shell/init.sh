@@ -6,11 +6,8 @@ path=$(pwd)
 startName=${path##*/}
 buildName=${startName}
 
-# log 目录
-logPath=${path}"/logs"
-
 # 最终的输出目录
 outPutPath=${path}"/dist"
 
-# 配置文件
-userEnv=${path}"/user_config.yaml"
+# 部署目录
+deployPath="git@github.com:mo7static/ShellHooks.git"
