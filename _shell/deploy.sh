@@ -5,7 +5,10 @@ source "./_shell/init.sh"
 #############
 
 npm run build &&
-  npm run git &&
-  node ${path}"/_shell/sftp.mjs"
+  npm run git
+
+cd ${outPutPath}
+
+node ${path}"/_shell/sftp.mjs"
 
 exit
