@@ -52,4 +52,4 @@ https://github.com/EasyGolang/goTools
 
 ## 程序运行示例
 
-![](https://file.mo7.cc/static/ShellHooks.net/sample.png)
+![](https://file.mo7.cc/static/img/ShellHooks_example.png)
