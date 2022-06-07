@@ -7,9 +7,5 @@
     "start": "./_shell/run.sh",
     "build": "./_shell/build.sh",
     "deploy": "./_shell/deploy.sh"
-  },
-  "devDependencies": {
-    "chalk": "^5.0.1",
-    "ssh2-sftp-client": "^8.1.0"
   }
 }
