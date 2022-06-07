@@ -1,8 +1,8 @@
 #!/bin/bash
 
-rm -rf ShellHooks.net
-mkdir ShellHooks.net
-cd ShellHooks.net
+rm -rf "ShellHooks.net"
+mkdir "ShellHooks.net"
+cd "ShellHooks.net"
 
 startName="ShellHooks.net"
 
