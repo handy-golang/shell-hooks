@@ -3,9 +3,9 @@ package main
 import (
 	_ "embed"
 
-	"WebHook.net/global"
-	"WebHook.net/ready"
-	"WebHook.net/router"
+	"ShellHooks.net/global"
+	"ShellHooks.net/ready"
+	"ShellHooks.net/router"
 	jsoniter "github.com/json-iterator/go"
 )
 

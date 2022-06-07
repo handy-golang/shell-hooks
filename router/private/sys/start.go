@@ -3,10 +3,10 @@ package sys
 import (
 	"net/http"
 
-	"WebHook.net/global"
-	"WebHook.net/global/config"
-	"WebHook.net/router/ginResult"
-	"WebHook.net/utils/shellControl"
+	"ShellHooks.net/global"
+	"ShellHooks.net/global/config"
+	"ShellHooks.net/router/ginResult"
+	"ShellHooks.net/utils/shellControl"
 	"github.com/gin-gonic/gin"
 )
 

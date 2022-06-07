@@ -13,5 +13,5 @@ func Public(c *gin.Context) {
 
 func AddHeader(c *gin.Context) {
 	c.Writer.Header().Del("Data-Type")
-	c.Header("Data-Type", "WebHook.net")
+	c.Header("Data-Type", "ShellHooks.net")
 }

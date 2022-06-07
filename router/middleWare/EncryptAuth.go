@@ -3,8 +3,8 @@ package middleWare
 import (
 	"net/http"
 
-	"WebHook.net/global/config"
-	"WebHook.net/router/ginResult"
+	"ShellHooks.net/global/config"
+	"ShellHooks.net/router/ginResult"
 	"github.com/EasyGolang/goTools/mStr"
 	"github.com/gin-gonic/gin"
 )

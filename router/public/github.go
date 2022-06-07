@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"WebHook.net/router/ginResult"
+	"ShellHooks.net/router/ginResult"
 	"github.com/EasyGolang/goTools/mJson"
 	"github.com/EasyGolang/goTools/mStr"
 	"github.com/gin-gonic/gin"

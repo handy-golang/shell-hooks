@@ -3,8 +3,8 @@ package middleWare
 import (
 	"net/http"
 
-	"WebHook.net/global"
-	"WebHook.net/router/ginResult"
+	"ShellHooks.net/global"
+	"ShellHooks.net/router/ginResult"
 	"github.com/gin-gonic/gin"
 )
 

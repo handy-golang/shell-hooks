@@ -1,5 +1,5 @@
 #!/bin/bash
-##WebHook:~部署WebHook.net~
+##WebHook:~部署ShellHooks.net~
 # 加载变量
 source "./_shell/init.sh"
 #############

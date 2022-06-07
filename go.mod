@@ -1,4 +1,4 @@
-module WebHook.net
+module ShellHooks.net
 
 go 1.18
 

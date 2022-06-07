@@ -1,8 +1,8 @@
 package private
 
 import (
-	"WebHook.net/router/middleWare"
-	"WebHook.net/router/private/sys"
+	"ShellHooks.net/router/middleWare"
+	"ShellHooks.net/router/private/sys"
 	"github.com/gin-gonic/gin"
 )
 

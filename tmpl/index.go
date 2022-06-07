@@ -3,7 +3,7 @@ package tmpl
 import (
 	"embed"
 
-	"WebHook.net/assets"
+	"ShellHooks.net/assets"
 )
 
 //go:embed email.html

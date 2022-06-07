@@ -1,4 +1,4 @@
 #!/bin/bash
-startName="WebHook.net"
+startName="ShellHooks.net"
 
 pm2 delete ${startName}

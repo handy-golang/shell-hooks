@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"regexp"
 
-	"WebHook.net/global"
-	"WebHook.net/global/config/public"
+	"ShellHooks.net/global"
+	"ShellHooks.net/global/config/public"
 	"github.com/EasyGolang/goTools/mPath"
 	"github.com/EasyGolang/goTools/mStr"
 )

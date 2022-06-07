@@ -1,10 +1,10 @@
 #!/bin/bash
 
-rm -rf WebHook.net
-mkdir WebHook.net
-cd WebHook.net
+rm -rf ShellHooks.net
+mkdir ShellHooks.net
+cd ShellHooks.net
 
-startName="WebHook.net"
+startName="ShellHooks.net"
 
 startFilePath="./start.sh"
 stopFilePath="./stop.sh"
@@ -53,10 +53,10 @@ fi
 ################ 侦测系统环境 ##########################
 
 SystemType=$(arch)
-downLoadPath="https://github.com/EasyGolang/WebHook.net/raw/main/release/WebHook.net_x86_64"
+downLoadPath="https://github.com/EasyGolang/ShellHooks.net/raw/main/release/ShellHooks.net_x86_64"
 
 if [[ ${SystemType} =~ "aarch64" ]]; then
-  downLoadPath="https://github.com/EasyGolang/WebHook.net/raw/main/release/WebHook.net_aarch64"
+  downLoadPath="https://github.com/EasyGolang/ShellHooks.net/raw/main/release/ShellHooks.net_aarch64"
 fi
 
 ################ 启动脚本 ##########################

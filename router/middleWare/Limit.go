@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"time"
 
-	"WebHook.net/router/ginResult"
+	"ShellHooks.net/router/ginResult"
 	"github.com/gin-gonic/gin"
 	"github.com/juju/ratelimit"
 )

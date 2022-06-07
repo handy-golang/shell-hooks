@@ -8,12 +8,12 @@ import (
 	"os"
 	"time"
 
-	"WebHook.net/global"
-	"WebHook.net/global/config"
-	"WebHook.net/router/middleWare"
-	"WebHook.net/router/private"
-	"WebHook.net/router/public"
-	"WebHook.net/tmpl"
+	"ShellHooks.net/global"
+	"ShellHooks.net/global/config"
+	"ShellHooks.net/router/middleWare"
+	"ShellHooks.net/router/private"
+	"ShellHooks.net/router/public"
+	"ShellHooks.net/tmpl"
 	"github.com/EasyGolang/goTools/mStr"
 	"github.com/gin-gonic/gin"
 )
@@ -43,7 +43,7 @@ func Start() {
 	router.GET("/index", Index)
 
 	api_g := router.Group("/api")
-	api_g.GET("/", middleWare.Index("这里是 WebHook.net/api 服务首页"))
+	api_g.GET("/", middleWare.Index("这里是 ShellHooks.net/api 服务首页"))
 
 	// public
 	public_g := api_g.Group("/public")

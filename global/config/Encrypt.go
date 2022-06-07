@@ -7,7 +7,7 @@ import (
 	"github.com/EasyGolang/goTools/mStr"
 )
 
-var SecretKey = mEncrypt.MD5("WebHook.net from mo7")
+var SecretKey = mEncrypt.MD5("ShellHooks.net from mo7")
 
 func Encrypt(msg string) string {
 	now := time.Now().Unix() / 30 // 分钟秒级别

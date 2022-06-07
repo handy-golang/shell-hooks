@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"WebHook.net/global/config"
+	"ShellHooks.net/global/config"
 	"github.com/EasyGolang/goTools/mCycle"
 	"github.com/EasyGolang/goTools/mJson"
 	"github.com/EasyGolang/goTools/mPath"

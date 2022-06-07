@@ -1,7 +1,7 @@
 package public
 
 import (
-	"WebHook.net/router/middleWare"
+	"ShellHooks.net/router/middleWare"
 	"github.com/gin-gonic/gin"
 )
 
