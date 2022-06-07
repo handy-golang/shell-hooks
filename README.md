@@ -5,7 +5,7 @@
 ## 安装
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/EasyGolang/ShellHooks.net/main/_shell/install_webhook.sh | bash
+wget -qO- https://file.mo7.cc/ShellHooks/install_shellhook.sh | bash
 ```
 
 ## 配置文件讲解
