@@ -4,8 +4,8 @@
 source "./_shell/init.sh"
 #############
 
-npm run build
+npm run build &&
+  npm run git &&
+  node ${path}"/_shell/sftp.mjs"
 
-npm run git
-
-npm run sync
+exit

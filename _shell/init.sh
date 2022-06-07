@@ -10,7 +10,7 @@ buildName=${startName}
 logPath=${path}"/logs"
 
 # 最终的输出目录
-outPutPath=${path}"/release"
+outPutPath=${path}"/dist"
 
 # 配置文件
 userEnv=${path}"/user_config.yaml"
