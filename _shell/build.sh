@@ -23,5 +23,19 @@ mkdir ${outPutPath} &&
   echo "移动 goRun 文件"
 mv ${buildName}"_aarch64" ${outPutPath} &&
   mv ${buildName}"_x86_64" ${outPutPath} &&
-  cp -r ${path}"/_shell/install_shellhook.sh" ${outPutPath} &&
-  exit
+  cp -r ${path}"/_shell/install_shellhook.sh" ${outPutPath}
+
+echo "写入 README.md 文件"
+
+sudo cat >${outPutPath}"/README.md" <<END
+
+# ShellHooks
+
+ShellHooks.net 的二进制执行文件
+
+## 使用说明
+
+https://github.com/EasyGolang/ShellHooks.net 
+
+
+END
