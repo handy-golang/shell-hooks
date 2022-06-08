@@ -1,7 +1,7 @@
 package shellControl
 
 import (
-	"ShellHooks.net/global/config"
+	"ShellHooks.net/server/global/config"
 	"github.com/EasyGolang/goTools/mTikker"
 )
 
