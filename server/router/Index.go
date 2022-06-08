@@ -14,7 +14,7 @@ func Index(c *fiber.Ctx) error {
 }
 
 func NotFund(c *fiber.Ctx) error {
-	return c.Render("404/404.tmpl", fiber.Map{
+	return c.Status(200).Render("404/404.tmpl", fiber.Map{
 		"title": "404 not found",
 	})
 }
