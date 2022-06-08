@@ -14,11 +14,11 @@ type DirType struct {
 }
 
 type FileType struct {
-	ServerEnv    string `json:"ServerEnv"`    // /root/server_env.yaml
-	AppServerEnv string `json:"AppServerEnv"` // ./server_env.yaml
-	UserConfig   string `json:"UserConfig"`   // ./user_config.yaml
-	StartShell   string `json:"StartShell"`   // ./start.sh
-	StopShell    string `json:"StopShell"`    // ./stop.sh
+	SysEnv     string `json:"SysEnv"`     // /root/server_env.yaml
+	AppSysEnv  string `json:"AppSysEnv"`  // ./server_env.yaml
+	AppEnv     string `json:"AppEnv"`     // ./user_config.yaml
+	StartShell string `json:"StartShell"` // ./start.sh
+	StopShell  string `json:"StopShell"`  // ./stop.sh
 }
 
 var (
@@ -26,7 +26,7 @@ var (
 	File FileType
 )
 
-func PathInit() {
+func DirInit() {
 	Dir.Home = mPath.HomePath()
 
 	Dir.App, _ = os.Getwd()
@@ -37,18 +37,18 @@ func PathInit() {
 		"logs",
 	)
 
-	File.ServerEnv = mStr.Join(
+	File.SysEnv = mStr.Join(
 		Dir.Home,
 		mStr.ToStr(os.PathSeparator),
 		"server_env.yaml",
 	)
-	File.AppServerEnv = mStr.Join(
+	File.AppSysEnv = mStr.Join(
 		Dir.App,
 		mStr.ToStr(os.PathSeparator),
 		"server_env.yaml",
 	)
 
-	File.UserConfig = mStr.Join(
+	File.AppEnv = mStr.Join(
 		Dir.App,
 		mStr.ToStr(os.PathSeparator),
 		"user_config.yaml",

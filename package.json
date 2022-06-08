@@ -4,7 +4,7 @@
   "scripts": {
     "git": "./_shell/gitSet.sh",
     "sync": "./_shell/sync_git.sh",
-    "start": "./_shell/run.sh",
+    "serve": "./_shell/run.sh",
     "build": "./_shell/build.sh",
     "deploy": "./_shell/deploy.sh"
   }
