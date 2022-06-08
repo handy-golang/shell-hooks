@@ -7,15 +7,16 @@ import (
 	"path/filepath"
 	"regexp"
 
-	"ShellHooks.net/global"
-	"ShellHooks.net/global/config/public"
+	"ShellHooks.net/server/global"
+	"ShellHooks.net/server/global/config"
+	"ShellHooks.net/server/global/config/public"
 	"github.com/EasyGolang/goTools/mPath"
 	"github.com/EasyGolang/goTools/mStr"
 )
 
 func SetShell() {
 	// 在这里读取文件列表,并打印 shell 文件
-	ShellDir, _ := filepath.Abs(global.UserEnv.ShellPath)
+	ShellDir, _ := filepath.Abs(config.AppEnv.ShellPath)
 	isShellDir := mPath.Exists(ShellDir)
 
 	if !isShellDir {

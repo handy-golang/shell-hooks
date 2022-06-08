@@ -7,7 +7,9 @@ import (
 )
 
 var AppEnv struct {
-	Port int `json:"Port"`
+	Port      int    `json:"Port"`
+	ShellPath string `json:"ShellPath"`
+	Password  string `json:"Password"`
 }
 var AppInfo struct {
 	Name    string `json:"name"`

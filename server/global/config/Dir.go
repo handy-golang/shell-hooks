@@ -40,18 +40,18 @@ func DirInit() {
 	File.SysEnv = mStr.Join(
 		Dir.Home,
 		mStr.ToStr(os.PathSeparator),
-		"server_env.yaml",
+		"sys_env.yaml",
 	)
 	File.AppSysEnv = mStr.Join(
 		Dir.App,
 		mStr.ToStr(os.PathSeparator),
-		"server_env.yaml",
+		"sys_env.yaml",
 	)
 
 	File.AppEnv = mStr.Join(
 		Dir.App,
 		mStr.ToStr(os.PathSeparator),
-		"user_config.yaml",
+		"app_env.yaml",
 	)
 
 	File.StartShell = mStr.Join(

@@ -3,9 +3,9 @@ package main
 import (
 	_ "embed"
 
-	"ShellHooks.net/global"
-	"ShellHooks.net/ready"
-	"ShellHooks.net/router"
+	"ShellHooks.net/server/global"
+	"ShellHooks.net/server/global/config"
+	"ShellHooks.net/server/ready"
 	jsoniter "github.com/json-iterator/go"
 )
 
@@ -15,11 +15,11 @@ import (
 var AppPackage []byte
 
 func main() {
-	jsoniter.Unmarshal(AppPackage, &global.AppPackage)
+	jsoniter.Unmarshal(AppPackage, &config.AppInfo)
 	// 初始化系统参数
 	global.Start()
 
 	ready.Start()
 
-	router.Start()
+	// router.Start()
 }
