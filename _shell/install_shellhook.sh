@@ -8,7 +8,7 @@ startName="ShellHooks.net"
 
 startFilePath="./start.sh"
 stopFilePath="./stop.sh"
-configFilePath="./user_config.yaml"
+configFilePath="./app_env.yaml"
 
 ################## 环境搭建环节 ########################
 
