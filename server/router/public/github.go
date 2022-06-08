@@ -2,23 +2,21 @@ package public
 
 import (
 	"fmt"
-	"net/http"
 
-	"ShellHooks.net/router/ginResult"
+	"ShellHooks.net/server/router/result"
 	"github.com/EasyGolang/goTools/mJson"
+	"github.com/EasyGolang/goTools/mRes/mFiber"
 	"github.com/EasyGolang/goTools/mStr"
-	"github.com/gin-gonic/gin"
+	"github.com/gofiber/fiber/v2"
 )
 
-func GitHun(c *gin.Context) {
-	var json map[string]any
-
-	c.ShouldBind(&json)
+func GitHun(c *fiber.Ctx) error {
+	json := mFiber.DataParser(c)
 
 	jsonStr := mJson.ToJson(json)
 
 	fmt.Println(mStr.ToStr(jsonStr))
 
 	// 执行 start.sh 文件
-	c.JSON(http.StatusOK, ginResult.Fail.WithData(json))
+	return c.JSON(result.Fail.WithData(json))
 }

@@ -1,22 +1,20 @@
 package router
 
 import (
-	"net/http"
-
-	"ShellHooks.net/global"
-	"ShellHooks.net/global/config/public"
-	"github.com/gin-gonic/gin"
+	"ShellHooks.net/server/global/config"
+	"ShellHooks.net/server/global/config/public"
+	"github.com/gofiber/fiber/v2"
 )
 
-func Index(c *gin.Context) {
-	c.HTML(http.StatusOK, "index/index.tmpl", gin.H{
-		"ShellList":  public.ShellFiles,
-		"AppPackage": global.AppPackage,
+func Index(c *fiber.Ctx) error {
+	return c.Render("index/index.tmpl", fiber.Map{
+		"ShellList": public.ShellFiles,
+		"AppInfo":   config.AppInfo,
 	})
 }
 
-func NotFund(c *gin.Context) {
-	c.HTML(http.StatusOK, "404/404.tmpl", gin.H{
+func NotFund(c *fiber.Ctx) error {
+	return c.Render("404/404.tmpl", fiber.Map{
 		"title": "404 not found",
 	})
 }

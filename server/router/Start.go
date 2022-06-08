@@ -1,69 +1,80 @@
 package router
 
 import (
-	"fmt"
-	"html/template"
-	"io"
 	"net/http"
 	"os"
 	"time"
 
-	"ShellHooks.net/global"
-	"ShellHooks.net/global/config"
-	"ShellHooks.net/router/middleWare"
-	"ShellHooks.net/router/private"
-	"ShellHooks.net/router/public"
-	"ShellHooks.net/tmpl"
+	"ShellHooks.net/server/global"
+	"ShellHooks.net/server/global/config"
+	"ShellHooks.net/server/router/midst"
+	"ShellHooks.net/server/router/private"
+	"ShellHooks.net/server/router/public"
+	"ShellHooks.net/server/tmpl"
 	"github.com/EasyGolang/goTools/mStr"
-	"github.com/gin-gonic/gin"
+	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/compress"
+	"github.com/gofiber/fiber/v2/middleware/favicon"
+	"github.com/gofiber/fiber/v2/middleware/filesystem"
+	"github.com/gofiber/fiber/v2/middleware/limiter"
+	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/gofiber/template/html"
 )
 
 func Start() {
-	logFile, _ := os.Create(config.Dir.Log + "/WebServer-" + time.Now().Format("06年1月02日15时") + ".log")
+	// 加载日志文件
+	fileName := config.Dir.Log + "/HTTP-" + time.Now().Format("06年1月02日15时") + ".log"
+	logFile, _ := os.Create(fileName)
 
-	gin.DefaultWriter = io.MultiWriter(logFile)
+	/*
+		加载模板
+		https://www.gouguoyin.cn/posts/10103.html
+	*/
+	engine := html.NewFileSystem(http.FS(tmpl.Static), ".html")
 
-	router := gin.Default()
-	router.Use(
-		middleWare.Public,
-		middleWare.RateLimitMiddleware(time.Second, 100, 100),
-	)
+	// 创建服务
+	app := fiber.New(fiber.Config{
+		ServerHeader: "GoFiberDemo.net",
+		Views:        engine,
+	})
 
-	// 模板渲染
-	tmplObj := template.Must(template.New("").ParseFS(tmpl.Html, "**/*"))
-	router.SetHTMLTemplate(tmplObj)
+	// 限流
+	app.Use(limiter.New(limiter.Config{
+		Max:        20,
+		Expiration: 20 * time.Second,
+	}))
 
-	router.StaticFS("/assets", http.FS(tmpl.Assets))
+	// 日志中间件
+	app.Use(logger.New(logger.Config{
+		Format:     "[${time}] [${ip}:${port}] ${status} - ${method} ${latency} ${path} \n",
+		TimeFormat: "2006-01-02 - 15:04:05",
+		Output:     logFile,
+	}), midst.Public, compress.New(), favicon.New())
 
-	// 404 处理
-	router.NoRoute(NotFund)
+	// 模板渲染样例
+	app.Get("/", Index)
 
-	// page index 首页
-	router.GET("/", Index)
-	router.GET("/index", Index)
-
-	api_g := router.Group("/api")
-	api_g.GET("/", middleWare.Index("这里是 ShellHooks.net/api 服务首页"))
-
+	// api
+	api := app.Group("/api")
+	api.Get("/ping", midst.Ping)
+	api.Post("/ping", midst.Ping)
 	// public
-	public_g := api_g.Group("/public")
-	public_g.Use(public.MiddleWare)
-	{
-		public.Router(public_g)
-	}
+	public.Router(api)
 
 	// private
-	private_g := api_g.Group("/private")
-	private_g.Use(private.MiddleWare)
-	{
-		private.Router(private_g)
-	}
+	private.Router(api)
 
-	port := global.UserEnv.Port
+	// 静态文件服务器
+	app.Use("/", filesystem.New(filesystem.Config{
+		Root: http.FS(tmpl.Static),
+	}))
 
-	logStr := mStr.Join(`启动服务:  http://localhost:`, port)
+	app.Use(func(c *fiber.Ctx) error {
+		c.Set("Content-Type", "text/html")
+		return c.Send(tmpl.IndexHtml)
+	})
 
-	fmt.Println(logStr)
-	global.Log.Println(logStr)
-	router.Run(":" + port)
+	listenHost := mStr.Join(":", config.AppEnv.Port)
+	global.Log.Println(mStr.Join(`启动服务: http://127.0.0.1`, listenHost))
+	app.Listen(listenHost)
 }

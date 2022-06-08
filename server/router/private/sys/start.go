@@ -1,28 +1,25 @@
 package sys
 
 import (
-	"net/http"
-
-	"ShellHooks.net/global"
-	"ShellHooks.net/global/config"
-	"ShellHooks.net/router/ginResult"
-	"ShellHooks.net/utils/shellControl"
-	"github.com/gin-gonic/gin"
+	"ShellHooks.net/server/global/config"
+	"ShellHooks.net/server/router/result"
+	"ShellHooks.net/server/utils/shellControl"
+	"github.com/EasyGolang/goTools/mRes/mFiber"
+	"github.com/gofiber/fiber/v2"
 )
 
 type SysAuthParam struct {
 	Password string
 }
 
-func Start(c *gin.Context) {
+func Start(c *fiber.Ctx) error {
 	var json SysAuthParam
-	c.ShouldBind(&json)
+	mFiber.DataParser(c, &json)
 
-	if json.Password != config.Encrypt(global.UserEnv.Password) {
-		c.JSON(http.StatusOK, ginResult.ErrPassword.WithData("密码错误"))
-		return
+	if json.Password != config.Encrypt(config.AppEnv.Password) {
+		return c.JSON(result.ErrPassword.WithData("密码错误"))
 	}
 
 	go shellControl.SysStart()
-	c.JSON(http.StatusOK, ginResult.OK.WithMsg("指令已发送"))
+	return c.JSON(result.OK.WithMsg("指令已发送"))
 }

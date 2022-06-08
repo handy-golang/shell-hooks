@@ -1,9 +1,9 @@
 package private
 
 import (
-	"ShellHooks.net/router/middleWare"
-	"ShellHooks.net/router/private/sys"
-	"github.com/gin-gonic/gin"
+	"ShellHooks.net/server/router/midst"
+	"ShellHooks.net/server/router/private/sys"
+	"github.com/gofiber/fiber/v2"
 )
 
 /*
@@ -11,12 +11,11 @@ import (
 /api/private
 
 */
-func Router(router *gin.RouterGroup) {
-	router.GET("", middleWare.Index(" /api/private 接口首页 "))
-	router.GET("/", middleWare.Index(" /api/private 接口首页 "))
 
-	router.POST("/sys/start", sys.Start)
+func Router(api fiber.Router) {
+	r := api.Group("/private", MiddleWare)
+	r.Post("/sys/start", sys.Start)
 
-	router.GET("/ping", middleWare.GetPing)
-	router.POST("/ping", middleWare.PostPing)
+	r.Get("/ping", midst.Ping)
+	r.Post("/ping", midst.Ping)
 }

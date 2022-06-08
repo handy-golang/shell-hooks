@@ -1,21 +1,20 @@
 package public
 
 import (
-	"ShellHooks.net/router/middleWare"
-	"github.com/gin-gonic/gin"
+	"ShellHooks.net/server/router/midst"
+	"github.com/gofiber/fiber/v2"
 )
 
 /*
 /api/public
 */
-func Router(router *gin.RouterGroup) {
-	router.GET("", middleWare.Index(" /api/public 接口首页 "))
-	router.GET("/", middleWare.Index(" /api/public 接口首页 "))
+func Router(api fiber.Router) {
+	r := api.Group("/public", MiddleWare)
 
-	router.POST("/shell_run", RunShell)
+	r.Post("/shell_run", RunShell)
 
-	router.POST("/github_webhooks", GitHun)
+	r.Post("/github_webhooks", GitHun)
 
-	router.GET("/ping", middleWare.GetPing)
-	router.POST("/ping", middleWare.PostPing)
+	r.Get("/ping", midst.Ping)
+	r.Post("/ping", midst.Ping)
 }

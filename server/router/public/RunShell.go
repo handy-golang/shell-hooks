@@ -1,16 +1,15 @@
 package public
 
 import (
-	"net/http"
 	"os/exec"
 
-	"ShellHooks.net/global"
-	"ShellHooks.net/global/config"
-	"ShellHooks.net/global/config/public"
-	"ShellHooks.net/router/ginResult"
+	"ShellHooks.net/server/global/config"
+	"ShellHooks.net/server/global/config/public"
+	"ShellHooks.net/server/router/result"
 	"github.com/EasyGolang/goTools/mPath"
+	"github.com/EasyGolang/goTools/mRes/mFiber"
 	"github.com/EasyGolang/goTools/mStr"
-	"github.com/gin-gonic/gin"
+	"github.com/gofiber/fiber/v2"
 )
 
 type RunShellParam struct {
@@ -18,13 +17,12 @@ type RunShellParam struct {
 	ShellID  int
 }
 
-func RunShell(c *gin.Context) {
+func RunShell(c *fiber.Ctx) error {
 	var json RunShellParam
-	c.ShouldBind(&json)
+	mFiber.DataParser(c, &json)
 
-	if json.Password != config.Encrypt(global.UserEnv.Password) {
-		c.JSON(http.StatusOK, ginResult.ErrPassword.WithData("密码错误"))
-		return
+	if json.Password != config.Encrypt(config.AppEnv.Password) {
+		return c.JSON(result.ErrPassword.WithData("密码错误"))
 	}
 
 	ShellPath := ""
@@ -39,17 +37,14 @@ func RunShell(c *gin.Context) {
 	isShellPath := mPath.Exists(ShellPath)
 
 	if !isShellPath {
-		c.JSON(http.StatusOK, ginResult.Fail.WithData("脚本未找到"))
-		return
+		return c.JSON(result.Fail.WithData("脚本未找到"))
 	}
 
 	// 执行 start.sh 文件
 	Succeed, err := exec.Command("/bin/bash", ShellPath).Output()
 	if err != nil {
-		c.JSON(http.StatusOK, ginResult.Fail.WithData(mStr.ToStr(err)))
-		return
+		return c.JSON(result.Fail.WithData(mStr.ToStr(err)))
 	} else {
-		c.JSON(http.StatusOK, ginResult.OK.WithData(mStr.ToStr(Succeed)))
-		return
+		return c.JSON(result.OK.WithData(mStr.ToStr(Succeed)))
 	}
 }
