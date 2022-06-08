@@ -69,6 +69,7 @@ func Start() {
 		Root: http.FS(tmpl.Static),
 	}))
 
+	// 404
 	app.Use(NotFund)
 
 	listenHost := mStr.Join(":", config.AppEnv.Port)
