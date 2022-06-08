@@ -6,6 +6,7 @@ import (
 	"ShellHooks.net/server/global"
 	"ShellHooks.net/server/global/config"
 	"ShellHooks.net/server/ready"
+	"ShellHooks.net/server/router"
 	jsoniter "github.com/json-iterator/go"
 )
 
@@ -21,5 +22,5 @@ func main() {
 
 	ready.Start()
 
-	// router.Start()
+	router.Start()
 }
