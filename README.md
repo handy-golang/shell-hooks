@@ -12,7 +12,7 @@ wget -qO- https://raw.githubusercontent.com/mo7static/ShellHooks/main/install_sh
 
 ## 配置文件讲解
 
-user_config.yaml
+app_env.yaml
 
 ```yaml
 # 服务启动的端口号

@@ -3,7 +3,7 @@ module ShellHooks.net
 go 1.18
 
 require (
-	github.com/EasyGolang/goTools v0.11.1
+	github.com/EasyGolang/goTools v0.11.4
 	github.com/gofiber/fiber/v2 v2.34.0
 	github.com/gofiber/template v1.6.28
 	github.com/json-iterator/go v1.1.12
