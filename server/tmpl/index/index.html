@@ -21,6 +21,9 @@
     padding: 3px 6px;
     margin-left: 6px;
   }
+  #password {
+    max-width: 280px;
+  }
   .version:hover {
     color: cornflowerblue;
   }
@@ -47,7 +50,7 @@
 <body>
   <h1 class="title">
     ShellHooks.net
-    <a class="pure-menu-link version" href="https://github.com/EasyGolang/ShellHooks.net" target="_blank">
+    <a class="version" href="https://github.com/EasyGolang/ShellHooks.net" target="_blank">
       <svg
         class="icon"
         viewBox="0 0 1024 1024"
@@ -69,7 +72,7 @@
   <br />
   <br />
 
-  <div class="pure-form">
+  <div>
     <input type="password" id="password" placeholder="请输入密码" />
   </div>
 
@@ -78,7 +81,7 @@
   <div>
     {{ range $i, $v := .ShellList }}
     <div>
-      <button class="runShellBtn pure-button pure-button-primary" key="{{$v.ID}}">{{ $v.Name }}</button>
+      <button class="runShellBtn" key="{{$v.ID}}">{{ $v.Name }}</button>
     </div>
     {{ end }}
   </div>
