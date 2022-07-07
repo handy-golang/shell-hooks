@@ -6,6 +6,7 @@ import (
 	"ShellHooks.net/server/global/config"
 	"ShellHooks.net/server/global/config/public"
 	"ShellHooks.net/server/router/result"
+	"github.com/EasyGolang/goTools/mEncrypt"
 	"github.com/EasyGolang/goTools/mPath"
 	"github.com/EasyGolang/goTools/mRes/mFiber"
 	"github.com/EasyGolang/goTools/mStr"
@@ -21,7 +22,7 @@ func RunShell(c *fiber.Ctx) error {
 	var json RunShellParam
 	mFiber.DataParser(c, &json)
 
-	if json.Password != config.Encrypt(config.AppEnv.Password) {
+	if json.Password != mEncrypt.MD5(config.AppEnv.Password) {
 		return c.JSON(result.ErrPassword.WithData("密码错误"))
 	}
 

@@ -32,7 +32,7 @@ window.http = (function () {
   const ajax = (param) => {
     const config = {
       headers: {
-        'Auth-Encrypt': mo7Encrypt(param.url),
+        'Auth-Encrypt': mo7Encrypt(param.url + window.navigator.userAgent),
       },
       ...param,
     };

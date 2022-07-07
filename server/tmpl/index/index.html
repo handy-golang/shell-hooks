@@ -115,7 +115,7 @@
       .ajax({
         url: '/api/public/shell_run',
         data: {
-          Password: window.mo7Encrypt(password),
+          Password: window.mo7Md5(password),
           ShellID: Number(key),
         },
         method: 'post',
