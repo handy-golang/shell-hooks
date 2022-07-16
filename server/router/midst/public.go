@@ -10,6 +10,6 @@ func Public(c *fiber.Ctx) error {
 }
 
 func AddHeader(c *fiber.Ctx) error {
-	c.Set("Data-Path", "GoFiberDemo.net")
+	c.Set("Data-Path", "ShellHooks.net")
 	return nil
 }

@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"ShellHooks.net/server/global/config"
+	"github.com/EasyGolang/goTools/mEncrypt"
 	"github.com/EasyGolang/goTools/mJson"
 	"github.com/EasyGolang/goTools/mPath"
 )
@@ -18,6 +19,8 @@ func AppEnvInt() {
 	}
 
 	config.LoadAppEnv()
+
+	config.AppEnv.Password = mEncrypt.MD5(config.AppEnv.Password)
 
 	Log.Println("加载 AppEnv : ", mJson.JsonFormat(mJson.ToJson(config.AppEnv)))
 }

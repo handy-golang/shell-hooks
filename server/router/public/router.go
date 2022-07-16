@@ -11,10 +11,5 @@ import (
 func Router(api fiber.Router) {
 	r := api.Group("/public", MiddleWare)
 
-	r.Post("/shell_run", RunShell)
-
-	r.Post("/github_webhooks", GitHun)
-
 	r.Get("/ping", midst.Ping)
-	r.Post("/ping", midst.Ping)
 }

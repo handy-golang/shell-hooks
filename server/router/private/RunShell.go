@@ -1,4 +1,4 @@
-package public
+package private
 
 import (
 	"os/exec"
