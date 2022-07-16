@@ -5,6 +5,5 @@ source "./_shell/init.sh"
 
 echo "更新依赖"
 go mod tidy
-## run
-echo " ========== 开始运行 ========== "
+echo " ========== 开始运行 goServer ========== "
 go run main.go

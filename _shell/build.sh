@@ -23,5 +23,5 @@ mkdir ${outPutPath} &&
   echo "移动 goRun 文件"
 mv ${buildName}"_aarch64" ${outPutPath} &&
   mv ${buildName}"_x86_64" ${outPutPath} &&
-  cp -r ${path}"/_shell/install_shellhook.sh" ${outPutPath}
+  cp -r ${path}"/server/tmpl/install_shellhook.sh" ${outPutPath}
 cp -r ${path}"/README.md" ${outPutPath}
