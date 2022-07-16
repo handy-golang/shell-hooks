@@ -37,7 +37,7 @@
       .ajax({
         url: '/api/private/sys/start',
         data: {
-          Password: window.mo7Encrypt(password),
+          Password: window.mo7Md5(password),
         },
         method: 'post',
       })
