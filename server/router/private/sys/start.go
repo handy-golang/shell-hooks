@@ -4,7 +4,7 @@ import (
 	"ShellHooks.net/server/global/config"
 	"ShellHooks.net/server/router/result"
 	"ShellHooks.net/server/utils/shellControl"
-	"github.com/EasyGolang/goTools/mRes/mFiber"
+	"github.com/EasyGolang/goTools/mFiber"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -14,7 +14,7 @@ type SysAuthParam struct {
 
 func Start(c *fiber.Ctx) error {
 	var json SysAuthParam
-	mFiber.DataParser(c, &json)
+	mFiber.Parser(c, &json)
 
 	if json.Password != config.AppEnv.Password {
 		return c.JSON(result.ErrPassword.WithData("密码错误"))

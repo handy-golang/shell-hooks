@@ -3,12 +3,12 @@ package midst
 import (
 	"ShellHooks.net/server/global/config"
 	"ShellHooks.net/server/router/result"
-	"github.com/EasyGolang/goTools/mRes/mFiber"
+	"github.com/EasyGolang/goTools/mFiber"
 	"github.com/gofiber/fiber/v2"
 )
 
 func Ping(c *fiber.Ctx) error {
-	json := mFiber.DataParser(c)
+	json := mFiber.Parser(c)
 
 	ReturnData := make(map[string]any)
 	ReturnData["ResParam"] = json

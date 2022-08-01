@@ -6,8 +6,8 @@ import (
 	"ShellHooks.net/server/global/config"
 	"ShellHooks.net/server/global/config/public"
 	"ShellHooks.net/server/router/result"
+	"github.com/EasyGolang/goTools/mFiber"
 	"github.com/EasyGolang/goTools/mPath"
-	"github.com/EasyGolang/goTools/mRes/mFiber"
 	"github.com/EasyGolang/goTools/mStr"
 	"github.com/gofiber/fiber/v2"
 )
@@ -19,7 +19,7 @@ type RunShellParam struct {
 
 func RunShell(c *fiber.Ctx) error {
 	var json RunShellParam
-	mFiber.DataParser(c, &json)
+	mFiber.Parser(c, &json)
 
 	if json.Password != config.AppEnv.Password {
 		return c.JSON(result.ErrPassword.WithData("密码错误"))
