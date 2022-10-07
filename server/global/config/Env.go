@@ -7,13 +7,13 @@ import (
 )
 
 var AppEnv struct {
-	Port      int    `json:"Port"`
-	ShellPath string `json:"ShellPath"`
-	Password  string `json:"Password"`
+	Port      int    `bson:"Port"`
+	ShellPath string `bson:"ShellPath"`
+	Password  string `bson:"Password"`
 }
 var AppInfo struct {
-	Name    string `json:"name"`
-	Version string `json:"version"`
+	Name    string `bson:"name"`
+	Version string `bson:"version"`
 }
 
 func LoadAppEnv() {

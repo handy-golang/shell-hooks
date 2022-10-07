@@ -1,9 +1,9 @@
 package public
 
 type ShellType struct {
-	ID   int    `json:"ID"`
-	Name string `json:"Name"`
-	Path string `json:"Path"`
+	ID   int    `bson:"ID"`
+	Name string `bson:"Name"`
+	Path string `bson:"Path"`
 }
 
 var ShellFiles = []ShellType{}

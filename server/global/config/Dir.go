@@ -8,17 +8,17 @@ import (
 )
 
 type DirType struct {
-	Home string `json:"Home"` // Home 根目录
-	App  string `json:"App"`  // APP 根目录
-	Log  string `json:"Log"`  // 日志文件目录
+	Home string `bson:"Home"` // Home 根目录
+	App  string `bson:"App"`  // APP 根目录
+	Log  string `bson:"Log"`  // 日志文件目录
 }
 
 type FileType struct {
-	SysEnv     string `json:"SysEnv"`     // /root/server_env.yaml
-	AppSysEnv  string `json:"AppSysEnv"`  // ./server_env.yaml
-	AppEnv     string `json:"AppEnv"`     // ./user_config.yaml
-	StartShell string `json:"StartShell"` // ./start.sh
-	StopShell  string `json:"StopShell"`  // ./stop.sh
+	SysEnv     string `bson:"SysEnv"`     // /root/server_env.yaml
+	AppSysEnv  string `bson:"AppSysEnv"`  // ./server_env.yaml
+	AppEnv     string `bson:"AppEnv"`     // ./user_config.yaml
+	StartShell string `bson:"StartShell"` // ./start.sh
+	StopShell  string `bson:"StopShell"`  // ./stop.sh
 }
 
 var (
