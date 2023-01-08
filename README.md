@@ -23,7 +23,7 @@ ShellPath: '/root/myShell'
 Password: '123456'
 ```
 
-> 程序每 2 分钟会自动扫描一次 ShellPath 目录
+> 程序每 2 分钟会自动扫描一次 `/root/myShell` 目录下的 .sh 文件
 > 修改配置文件后,请执行目录下的 ./start.sh 脚本 或点击页面上的 `重启并更新 ShellHooks.net` 按钮
 
 ## 脚本规范
