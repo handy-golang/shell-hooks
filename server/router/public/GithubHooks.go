@@ -204,6 +204,8 @@ func GithubHooks(c *fiber.Ctx) error {
 		return c.JSON(result.Fail.WithData(json))
 	}
 
+	global.Log.Println("public.GithubHooks 开始执行", json.Repository.Name)
+
 	ShellPath := GetShellContent(json.Repository.Name)
 
 	isShellPath := mPath.Exists(ShellPath)

@@ -13,5 +13,5 @@ func Router(api fiber.Router) {
 
 	r.Get("/ping", midst.Ping)
 
-	r.Post("/githubHooks", GithubHooks)
+	r.Post("/github", GithubHooks)
 }
