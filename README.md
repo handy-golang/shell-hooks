@@ -48,7 +48,7 @@ npm run sync
 
 ```
 
-http://xxxxxxx:9999/api/public/githubHooks
+http://xxxxxxx:9999/api/public/github
 
 ```
 
