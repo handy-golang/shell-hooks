@@ -2,6 +2,7 @@
 # 加载变量
 source "./_shell/init.sh"
 #############
+npm run git
 
 desc=$1
 
