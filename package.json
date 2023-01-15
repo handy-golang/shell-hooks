@@ -1,6 +1,6 @@
 {
   "name": "web_hook-net",
-  "version": "0.7.3",
+  "version": "0.7.5",
   "scripts": {
     "git": "./_shell/gitSet.sh",
     "sync": "./_shell/gitSync.sh",
