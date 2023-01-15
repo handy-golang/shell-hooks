@@ -44,6 +44,14 @@ npm run sync
 
 > 程序会读取文件中的 `##WebHook:~***~` 的 shell 文件，将其中的 `***` 作为脚本的名称，具有名称的脚本才会被程序所读取
 
+## Github Webhooks
+
+```
+
+http://xxxxxxx:9999/api/public/githubHooks
+
+```
+
 ## 使用的一些第三方库
 
 https://github.com/fabiospampinato/cash
