@@ -200,6 +200,7 @@ func GithubHooks(c *fiber.Ctx) error {
 	mFiber.Parser(c, &json)
 
 	if len(json.Repository.Name) < 2 {
+		global.LogErr("public.GithubHooks Name 长度不正确", json)
 		return c.JSON(result.Fail.WithData(json))
 	}
 
