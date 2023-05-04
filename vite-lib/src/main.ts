@@ -12,7 +12,3 @@ if (ViteConst) {
   window.$ = $;
   window.$ajax = ajax;
 }
-
-$('#password').on('input', (res) => {
-  console.log(res, ajax);
-});
