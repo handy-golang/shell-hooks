@@ -107,15 +107,14 @@
 
     $('#res').css('border-color', 'cornflowerblue');
 
-    http
-      .ajax({
-        url: '/api/private/shell_run',
-        data: {
-          Password: window.mo7Md5(password),
-          ShellID: Number(key),
-        },
-        method: 'post',
-      })
+    $ajax({
+      url: '/api/private/shell_run',
+      data: {
+        Password: window.mo7Md5(password),
+        ShellID: Number(key),
+      },
+      method: 'post',
+    })
       .then((res) => {
         const data = res.data;
         $('#resMsg').html(data.Msg);
