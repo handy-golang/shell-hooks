@@ -1,6 +1,6 @@
 import 'normalize.css';
 import 'picnic';
-import '@/ShellHooks.net';
+// import '@/ShellHooks.net';
 import $ from 'cash-dom';
 import { ajax } from '@/http';
 
