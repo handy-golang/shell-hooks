@@ -63,3 +63,37 @@ https://github.com/EasyGolang/goTools
 ## 程序运行示例
 
 ![](https://mo7static.github.io/file/ShellHooks_sample.png)
+
+## 配置 github 自动部署
+
+填写链接
+
+http://itpo.mo7.cc:9999/api/public/github
+
+## 脚本案例
+
+```bash
+
+#!/bin/bash
+##WebHook:~ 更新并部署 WebClientPackage ~
+
+# git 远程 仓库
+gitRemote="git@github.com:AItrade-mo7/WebClientPackage.git"
+
+# 部署目录
+projectPath="/root/ProdProject"
+
+# 运行目录
+runPath=${projectPath}"/trade.mo7.cc"
+
+cd ${projectPath} || exit
+
+rm -rf ${runPath}
+
+git clone ${gitRemote}
+mv WebClientPackage trade.mo7.cc
+
+```
+
+> 其中 `WebClientPackage` 为仓库名字
+> 然后 nginx 配置静态文件指向目录为 `trade.mo7.cc`

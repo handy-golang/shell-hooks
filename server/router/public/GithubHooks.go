@@ -199,6 +199,8 @@ func GithubHooks(c *fiber.Ctx) error {
 	var json GithubHooksType
 	mFiber.Parser(c, &json)
 
+	// mFile.Write(config.Dir.Log+"/github.json", mJson.ToStr(json))
+
 	if len(json.Repository.Name) < 2 {
 		global.LogErr("public.GithubHooks Name 长度不正确", json)
 		return c.JSON(result.Fail.WithData(json))
