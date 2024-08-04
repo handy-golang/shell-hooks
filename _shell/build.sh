@@ -25,4 +25,4 @@ mv "${buildName}""_aarch64" "${outPutPath}" &&
   mv "${buildName}""_x86_64" "${outPutPath}" &&
   cp -r "${path}""/server/tmpl/install_shellhook.sh" "${outPutPath}"
 cp -r "${path}""/README.md" "${outPutPath}"
-cp -r "${path}""/package.json" "${outPutPath}"
+cp -r "${path}""/ShellHooks_sample.png" "${outPutPath}"

@@ -51,10 +51,10 @@ fi
 ################ 侦测系统环境 ##########################
 
 SystemType=$(arch)
-downLoadPath="https://raw.githubusercontent.com/mo7static/ShellHooks/main/ShellHooks.net_x86_64"
+downLoadPath="https://raw.githubusercontent.com/handy-golang/shell-hooks-package/main/shell-hooks_x86_64"
 
 if [[ ${SystemType} =~ "aarch64" ]]; then
-  downLoadPath="https://raw.githubusercontent.com/mo7static/ShellHooks/main/ShellHooks.net_aarch64"
+  downLoadPath="https://raw.githubusercontent.com/handy-golang/shell-hooks-package/main/shell-hooks_aarch64"
 fi
 
 ################ 启动脚本 ##########################

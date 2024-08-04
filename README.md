@@ -62,7 +62,7 @@ https://github.com/EasyGolang/goTools
 
 ## 程序运行示例
 
-![](https://mo7static.github.io/file/ShellHooks_sample.png)
+![](./ShellHooks_sample.png)
 
 ## 配置 github 自动部署
 
