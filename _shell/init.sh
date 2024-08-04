@@ -10,4 +10,4 @@ buildName=${startName}
 outPutPath=${path}"/dist"
 
 # 部署目录
-deployPath="git@github.com:mo7static/ShellHooks.git"
+deployPath="git@github.com:handy-golang/shell-hooks-package.git"
