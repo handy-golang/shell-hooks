@@ -1,6 +1,6 @@
 module ShellHooks.net
 
-go 1.18
+go 1.22.5
 
 require (
 	github.com/EasyGolang/goTools v1.0.31
