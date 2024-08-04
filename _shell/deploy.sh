@@ -16,7 +16,7 @@ git init
 git add .
 git commit -m ${nowTime}
 git remote add origin ${deployPath}
-git push -f --set-upstream origin master:main
+git push -f --set-upstream origin main:main
 echo "同步完成"
 
 exit

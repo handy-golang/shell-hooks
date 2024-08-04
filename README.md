@@ -2,12 +2,12 @@
 
 非嵌入式的服务器脚本执行器
 
-源码: https://github.com/EasyGolang/ShellHooks.net
+源码: https://github.com/handy-golang/shell-hooks
 
 ## 安装
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/mo7static/ShellHooks/main/install_shellhook.sh | bash
+wget -qO- https://raw.githubusercontent.com/handy-golang/shell-hooks-package/main/install_shellhook.sh | bash
 ```
 
 ## 配置文件讲解
